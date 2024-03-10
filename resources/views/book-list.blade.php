@@ -9,7 +9,7 @@
 
     <main id="main">
 
-        <!-- ======= About Us Section ======= -->
+        {{--<!-- ======= About Us Section ======= -->
         <section id="about" class="about">
             <div class="container" data-aos="fade-up">
 
@@ -50,283 +50,8 @@
                 </div>
 
             </div>
-        </section><!-- End About Us Section -->
+        </section><!-- End About Us Section -->--}}
 
-        <!-- ======= Clients Section ======= -->
-        <section id="clients" class="clients">
-            <div class="container" data-aos="zoom-out">
-
-                <div class="clients-slider swiper">
-                    <div class="swiper-wrapper align-items-center">
-                        <div class="swiper-slide"><img src="{{asset('webassets/img/clients/client-1.png')}}" class="img-fluid" alt=""></div>
-                        <div class="swiper-slide"><img src="{{asset('webassets/img/clients/client-2.png')}}" class="img-fluid" alt=""></div>
-                        <div class="swiper-slide"><img src="{{asset('webassets/img/clients/client-3.png')}}" class="img-fluid" alt=""></div>
-                        <div class="swiper-slide"><img src="{{asset('webassets/img/clients/client-4.png')}}" class="img-fluid" alt=""></div>
-                        <div class="swiper-slide"><img src="{{asset('webassets/img/clients/client-5.png')}}" class="img-fluid" alt=""></div>
-                        <div class="swiper-slide"><img src="{{asset('webassets/img/clients/client-6.png')}}" class="img-fluid" alt=""></div>
-                        <div class="swiper-slide"><img src="{{asset('webassets/img/clients/client-7.png')}}" class="img-fluid" alt=""></div>
-                        <div class="swiper-slide"><img src="{{asset('webassets/img/clients/client-8.png')}}" class="img-fluid" alt=""></div>
-                    </div>
-                </div>
-
-            </div>
-        </section><!-- End Clients Section -->
-
-        <!-- ======= Stats Counter Section ======= -->
-        <section id="stats-counter" class="stats-counter">
-            <div class="container" data-aos="fade-up">
-
-                <div class="row gy-4 align-items-center">
-
-                    <div class="col-lg-6">
-                        <img src="{{asset('webassets/img/stats-img.svg')}}" alt="" class="img-fluid">
-                    </div>
-
-                    <div class="col-lg-6">
-
-                        <div class="stats-item d-flex align-items-center">
-                            <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-                            <p><strong>Happy Clients</strong> consequuntur quae diredo para mesta</p>
-                        </div><!-- End Stats Item -->
-
-                        <div class="stats-item d-flex align-items-center">
-                            <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-                            <p><strong>Projects</strong> adipisci atque cum quia aut</p>
-                        </div><!-- End Stats Item -->
-
-                        <div class="stats-item d-flex align-items-center">
-                            <span data-purecounter-start="0" data-purecounter-end="453" data-purecounter-duration="1" class="purecounter"></span>
-                            <p><strong>Hours Of Support</strong> aut commodi quaerat</p>
-                        </div><!-- End Stats Item -->
-
-                    </div>
-
-                </div>
-
-            </div>
-        </section><!-- End Stats Counter Section -->
-
-        <!-- ======= Call To Action Section ======= -->
-        <section id="call-to-action" class="call-to-action">
-            <div class="container text-center" data-aos="zoom-out">
-                <a href="#" class="glightbox play-btn"></a>
-                <h3>Call To Action</h3>
-                <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <a class="cta-btn" href="#">Call To Action</a>
-            </div>
-        </section><!-- End Call To Action Section -->
-
-        <!-- ======= Our Services Section ======= -->
-        <section id="services" class="services sections-bg">
-            <div class="container" data-aos="fade-up">
-
-                <div class="section-header">
-                    <h2>Our Services</h2>
-                    <p>Aperiam dolorum et et wuia molestias qui eveniet numquam nihil porro incidunt dolores placeat sunt id nobis omnis tiledo stran delop</p>
-                </div>
-
-                <div class="row gy-4" data-aos="fade-up" data-aos-delay="100">
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-item  position-relative">
-                            <div class="icon">
-                                <i class="bi bi-activity"></i>
-                            </div>
-                            <h3>Nesciunt Mete</h3>
-                            <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis tempore et consequatur.</p>
-                            <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div><!-- End Service Item -->
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-item position-relative">
-                            <div class="icon">
-                                <i class="bi bi-broadcast"></i>
-                            </div>
-                            <h3>Eosle Commodi</h3>
-                            <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut nesciunt dolorem.</p>
-                            <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div><!-- End Service Item -->
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-item position-relative">
-                            <div class="icon">
-                                <i class="bi bi-easel"></i>
-                            </div>
-                            <h3>Ledo Markt</h3>
-                            <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas adipisci eos earum corrupti.</p>
-                            <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div><!-- End Service Item -->
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-item position-relative">
-                            <div class="icon">
-                                <i class="bi bi-bounding-box-circles"></i>
-                            </div>
-                            <h3>Asperiores Commodit</h3>
-                            <p>Non et temporibus minus omnis sed dolor esse consequatur. Cupiditate sed error ea fuga sit provident adipisci neque.</p>
-                            <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div><!-- End Service Item -->
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-item position-relative">
-                            <div class="icon">
-                                <i class="bi bi-calendar4-week"></i>
-                            </div>
-                            <h3>Velit Doloremque</h3>
-                            <p>Cumque et suscipit saepe. Est maiores autem enim facilis ut aut ipsam corporis aut. Sed animi at autem alias eius labore.</p>
-                            <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div><!-- End Service Item -->
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-item position-relative">
-                            <div class="icon">
-                                <i class="bi bi-chat-square-text"></i>
-                            </div>
-                            <h3>Dolori Architecto</h3>
-                            <p>Hic molestias ea quibusdam eos. Fugiat enim doloremque aut neque non et debitis iure. Corrupti recusandae ducimus enim.</p>
-                            <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div><!-- End Service Item -->
-
-                </div>
-
-            </div>
-        </section><!-- End Our Services Section -->
-
-        {{--<!-- ======= Testimonials Section ======= -->
-        <section id="testimonials" class="testimonials">
-            <div class="container" data-aos="fade-up">
-
-                <div class="section-header">
-                    <h2>Testimonials</h2>
-                    <p>Voluptatem quibusdam ut ullam perferendis repellat non ut consequuntur est eveniet deleniti fignissimos eos quam</p>
-                </div>
-
-                <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">
-                    <div class="swiper-wrapper">
-
-                        <div class="swiper-slide">
-                            <div class="testimonial-wrap">
-                                <div class="testimonial-item">
-                                    <div class="d-flex align-items-center">
-                                        <img src="{{asset('webassets/img/testimonials/testimonials-1.jpg')}}" class="testimonial-img flex-shrink-0" alt="">
-                                        <div>
-                                            <h3>Saul Goodman</h3>
-                                            <h4>Ceo &amp; Founder</h4>
-                                            <div class="stars">
-                                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p>
-                                        <i class="bi bi-quote quote-icon-left"></i>
-                                        Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                                        <i class="bi bi-quote quote-icon-right"></i>
-                                    </p>
-                                </div>
-                            </div>
-                        </div><!-- End testimonial item -->
-
-                        <div class="swiper-slide">
-                            <div class="testimonial-wrap">
-                                <div class="testimonial-item">
-                                    <div class="d-flex align-items-center">
-                                        <img src="{{asset('webassets/img/testimonials/testimonials-2.jpg')}}" class="testimonial-img flex-shrink-0" alt="">
-                                        <div>
-                                            <h3>Sara Wilsson</h3>
-                                            <h4>Designer</h4>
-                                            <div class="stars">
-                                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p>
-                                        <i class="bi bi-quote quote-icon-left"></i>
-                                        Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                                        <i class="bi bi-quote quote-icon-right"></i>
-                                    </p>
-                                </div>
-                            </div>
-                        </div><!-- End testimonial item -->
-
-                        <div class="swiper-slide">
-                            <div class="testimonial-wrap">
-                                <div class="testimonial-item">
-                                    <div class="d-flex align-items-center">
-                                        <img src="{{asset('webassets/img/testimonials/testimonials-3.jpg')}}" class="testimonial-img flex-shrink-0" alt="">
-                                        <div>
-                                            <h3>Jena Karlis</h3>
-                                            <h4>Store Owner</h4>
-                                            <div class="stars">
-                                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p>
-                                        <i class="bi bi-quote quote-icon-left"></i>
-                                        Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                                        <i class="bi bi-quote quote-icon-right"></i>
-                                    </p>
-                                </div>
-                            </div>
-                        </div><!-- End testimonial item -->
-
-                        <div class="swiper-slide">
-                            <div class="testimonial-wrap">
-                                <div class="testimonial-item">
-                                    <div class="d-flex align-items-center">
-                                        <img src="{{asset('webassets/img/testimonials/testimonials-4.jpg')}}" class="testimonial-img flex-shrink-0" alt="">
-                                        <div>
-                                            <h3>Matt Brandon</h3>
-                                            <h4>Freelancer</h4>
-                                            <div class="stars">
-                                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p>
-                                        <i class="bi bi-quote quote-icon-left"></i>
-                                        Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore.
-                                        <i class="bi bi-quote quote-icon-right"></i>
-                                    </p>
-                                </div>
-                            </div>
-                        </div><!-- End testimonial item -->
-
-                        <div class="swiper-slide">
-                            <div class="testimonial-wrap">
-                                <div class="testimonial-item">
-                                    <div class="d-flex align-items-center">
-                                        <img src="{{asset('webassets/img/testimonials/testimonials-5.jpg')}}" class="testimonial-img flex-shrink-0" alt="">
-                                        <div>
-                                            <h3>John Larson</h3>
-                                            <h4>Entrepreneur</h4>
-                                            <div class="stars">
-                                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p>
-                                        <i class="bi bi-quote quote-icon-left"></i>
-                                        Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore.
-                                        <i class="bi bi-quote quote-icon-right"></i>
-                                    </p>
-                                </div>
-                            </div>
-                        </div><!-- End testimonial item -->
-
-                    </div>
-                    <div class="swiper-pagination"></div>
-                </div>
-
-            </div>
-        </section><!-- End Testimonials Section -->
---}}
         <!-- ======= Portfolio Section ======= -->
         <section id="books" class="portfolio sections-bg">
             <div class="container" data-aos="fade-up">
@@ -354,61 +79,37 @@
 
                     <div class="row gy-4 portfolio-container">
 
-                                    @foreach ($books as $item)
-                        {{--                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">--}}
-                        {{--                    <div class="card h-100">--}}
-                        {{--                        <img src="{{ $item->cover != null ? asset('cover/' . $item->cover) : asset('images/cover-default.png') }}"--}}
-                        {{--                            class="card-img-top img-fluid" alt="Book Cover" draggable="false" height="350px">--}}
-                        {{--                        <div class="card-body">--}}
-                        {{--                            <h5 class="card-title text-center">Book Code - {{ $item->book_code }}</h5>--}}
-                        {{--                            <p class="card-text">Book Title - {{ $item->title }}</p>--}}
-                        {{--                            <p class="card-text">Book Charges - {{ $item->charges }}</p>--}}
-                        {{--                            @if (Auth::User() && Auth::User()->role_id === 3)--}}
-                        {{--                                <div class="col-12 col-md-auto">--}}
-                        {{--                                    <a href="book-add" class="btn btn-primary me-4">Borrow Request</a>--}}
-                        {{--                                </div>--}}
-                        {{--                            @endif--}}
-                        {{--                            <h6 class="text-end"><span--}}
-                        {{--                                    class="badge {{ $item->status == 'in stock' ? 'text-bg-success' : 'badge bg-secondary' }}">{{ $item->status }}</span>--}}
-                        {{--                            </h6>--}}
-                        {{--                        </div>--}}
-                        {{--                    </div>--}}
-                        {{--                </div>--}}
+                        @foreach ($books as $item)
 
-                        <div class="col-xl-4 col-md-6 portfolio-item filter-1">
-                            <div class="portfolio-wrap">
-                                <a href="{{ $item->cover != null ? asset('cover/' . $item->cover) : asset('images/cover-default.png') }}" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{{asset('webassets/img/portfolio/app-1.jpg')}}" class="img-fluid" alt=""></a>
-                                <div class="portfolio-info">
-                                    <h4><a href="portfolio-details.html" title="More Details">Book Title - {{ $item->title }}</a></h4>
-                                    <p>Book Charges - {{ $item->charges }}</p>
-                                    <p>Ratings</p>
-                                    @for($i=0;$i<5;$i++)
+                            <div class="col-xl-4 col-md-6 portfolio-item filter-{{$item->category_id}}">
+                                <div class="portfolio-wrap">
+                                    <a href="{{ $item->cover != null ? asset('cover/' . $item->cover) : asset('images/cover-default.png') }}" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{{ $item->cover != null ? asset('cover/' . $item->cover) : asset('images/cover-default.png') }}" class="img-fluid" alt=""></a>
+                                    <div class="portfolio-info">
+                                        <h4><a href="portfolio-details.html" title="More Details">Book Title - {{ $item->title }}</a></h4>
+                                        <p>Book Charges - {{ $item->charges }}</p>
+                                        <p>Ratings</p>
+                                        @for($i=0;$i<5;$i++)
 
-                                        @if($i < $item->overall_rating)
-                                            @if (Auth::User() && Auth::User()->role_id === 3)
-                                                <i class="bi bi-star" title="Click to rate this book" style="cursor:pointer" onclick="rateBook({{$i+1}}, {{$item->id}})"></i>
+                                            @if($i < $item->overall_rating)
+                                                @if (Auth::User() && Auth::User()->role_id === 3)
+                                                    <i class="bi bi-star" title="Login to rate your books" style="cursor:pointer"></i>
+                                                @endif
+
                                             @else
-                                                <i class="bi bi-star"  title="Login to rate this book" style="cursor:pointer"></i>
+                                                @if (Auth::User() && Auth::User()->role_id === 3)
+                                                    <i class="bi bi-star" title="Login to rate your books" style="cursor:pointer; color: greenyellow" ></i>
+                                                @endif
+
                                             @endif
-
-                                        @else
-
-                                            @if (Auth::User() && Auth::User()->role_id === 3)
-                                                <i class="bi bi-star" title="Click to rate this book" style="cursor:pointer; color: greenyellow" onclick="rateBook({{$i+1}}, {{$item->id}})"></i>
-                                            @else
-                                                <i class="bi bi-star"  title="Login to rate this book" style="cursor:pointer; color: greenyellow"></i>
-                                            @endif
-
+                                        @endfor
+                                        @if (Auth::User() && Auth::User()->role_id === 3)
+                                            <div class="col-12 col-md-auto">
+                                                <a href="borrow-req/{{ $item->id }}" class="btn btn-primary me-4">Borrow Request</a>
+                                            </div>
                                         @endif
-                                    @endfor
-                                    @if (Auth::User() && Auth::User()->role_id === 3)
-                                        <div class="col-12 col-md-auto">
-                                            <a href="borrow-req/{{ $item->id }}" class="btn btn-primary me-4">Borrow Request</a>
-                                        </div>
-                                    @endif
+                                    </div>
                                 </div>
-                            </div>
-                        </div><!-- End Book Item -->
+                            </div><!-- End Book Item -->
 
                         @endforeach
 
@@ -540,7 +241,283 @@
             </div>
         </section><!-- End Portfolio Section -->
 
-        <!-- ======= Our Team Section ======= -->
+        <!-- ======= Clients Section ======= -->
+        <section id="clients" class="clients">
+            <div class="container" data-aos="zoom-out">
+
+                <div class="clients-slider swiper">
+                    <div class="swiper-wrapper align-items-center">
+                        <div class="swiper-slide"><img src="{{asset('webassets/img/clients/client-1.png')}}" class="img-fluid" alt=""></div>
+                        <div class="swiper-slide"><img src="{{asset('webassets/img/clients/client-2.png')}}" class="img-fluid" alt=""></div>
+                        <div class="swiper-slide"><img src="{{asset('webassets/img/clients/client-3.png')}}" class="img-fluid" alt=""></div>
+                        <div class="swiper-slide"><img src="{{asset('webassets/img/clients/client-4.png')}}" class="img-fluid" alt=""></div>
+                        <div class="swiper-slide"><img src="{{asset('webassets/img/clients/client-5.png')}}" class="img-fluid" alt=""></div>
+                        <div class="swiper-slide"><img src="{{asset('webassets/img/clients/client-6.png')}}" class="img-fluid" alt=""></div>
+                        <div class="swiper-slide"><img src="{{asset('webassets/img/clients/client-7.png')}}" class="img-fluid" alt=""></div>
+                        <div class="swiper-slide"><img src="{{asset('webassets/img/clients/client-8.png')}}" class="img-fluid" alt=""></div>
+                    </div>
+                </div>
+
+            </div>
+        </section><!-- End Clients Section -->
+
+        <!-- ======= Stats Counter Section ======= -->
+        <section id="stats-counter" class="stats-counter">
+            <div class="container" data-aos="fade-up">
+
+                <div class="row gy-4 align-items-center">
+
+                    <div class="col-lg-6">
+                        <img src="{{asset('webassets/img/stats-img.svg')}}" alt="" class="img-fluid">
+                    </div>
+
+                    <div class="col-lg-6">
+
+                        <div class="stats-item d-flex align-items-center">
+                            <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
+                            <p><strong>Happy Clients</strong> consequuntur quae diredo para mesta</p>
+                        </div><!-- End Stats Item -->
+
+                        <div class="stats-item d-flex align-items-center">
+                            <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
+                            <p><strong>Projects</strong> adipisci atque cum quia aut</p>
+                        </div><!-- End Stats Item -->
+
+                        <div class="stats-item d-flex align-items-center">
+                            <span data-purecounter-start="0" data-purecounter-end="453" data-purecounter-duration="1" class="purecounter"></span>
+                            <p><strong>Hours Of Support</strong> aut commodi quaerat</p>
+                        </div><!-- End Stats Item -->
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section><!-- End Stats Counter Section -->
+
+        {{--<!-- ======= Call To Action Section ======= -->
+        <section id="call-to-action" class="call-to-action">
+            <div class="container text-center" data-aos="zoom-out">
+                <a href="#" class="glightbox play-btn"></a>
+                <h3>Call To Action</h3>
+                <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <a class="cta-btn" href="#">Call To Action</a>
+            </div>
+        </section><!-- End Call To Action Section -->--}}
+
+        {{--<!-- ======= Our Services Section ======= -->
+        <section id="services" class="services sections-bg">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-header">
+                    <h2>Our Services</h2>
+                    <p>Aperiam dolorum et et wuia molestias qui eveniet numquam nihil porro incidunt dolores placeat sunt id nobis omnis tiledo stran delop</p>
+                </div>
+
+                <div class="row gy-4" data-aos="fade-up" data-aos-delay="100">
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-item  position-relative">
+                            <div class="icon">
+                                <i class="bi bi-activity"></i>
+                            </div>
+                            <h3>Nesciunt Mete</h3>
+                            <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis tempore et consequatur.</p>
+                            <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div><!-- End Service Item -->
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-item position-relative">
+                            <div class="icon">
+                                <i class="bi bi-broadcast"></i>
+                            </div>
+                            <h3>Eosle Commodi</h3>
+                            <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut nesciunt dolorem.</p>
+                            <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div><!-- End Service Item -->
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-item position-relative">
+                            <div class="icon">
+                                <i class="bi bi-easel"></i>
+                            </div>
+                            <h3>Ledo Markt</h3>
+                            <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas adipisci eos earum corrupti.</p>
+                            <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div><!-- End Service Item -->
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-item position-relative">
+                            <div class="icon">
+                                <i class="bi bi-bounding-box-circles"></i>
+                            </div>
+                            <h3>Asperiores Commodit</h3>
+                            <p>Non et temporibus minus omnis sed dolor esse consequatur. Cupiditate sed error ea fuga sit provident adipisci neque.</p>
+                            <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div><!-- End Service Item -->
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-item position-relative">
+                            <div class="icon">
+                                <i class="bi bi-calendar4-week"></i>
+                            </div>
+                            <h3>Velit Doloremque</h3>
+                            <p>Cumque et suscipit saepe. Est maiores autem enim facilis ut aut ipsam corporis aut. Sed animi at autem alias eius labore.</p>
+                            <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div><!-- End Service Item -->
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-item position-relative">
+                            <div class="icon">
+                                <i class="bi bi-chat-square-text"></i>
+                            </div>
+                            <h3>Dolori Architecto</h3>
+                            <p>Hic molestias ea quibusdam eos. Fugiat enim doloremque aut neque non et debitis iure. Corrupti recusandae ducimus enim.</p>
+                            <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div><!-- End Service Item -->
+
+                </div>
+
+            </div>
+        </section><!-- End Our Services Section -->--}}
+
+        {{--<!-- ======= Testimonials Section ======= -->
+        <section id="testimonials" class="testimonials">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-header">
+                    <h2>Testimonials</h2>
+                    <p>Voluptatem quibusdam ut ullam perferendis repellat non ut consequuntur est eveniet deleniti fignissimos eos quam</p>
+                </div>
+
+                <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-wrap">
+                                <div class="testimonial-item">
+                                    <div class="d-flex align-items-center">
+                                        <img src="{{asset('webassets/img/testimonials/testimonials-1.jpg')}}" class="testimonial-img flex-shrink-0" alt="">
+                                        <div>
+                                            <h3>Saul Goodman</h3>
+                                            <h4>Ceo &amp; Founder</h4>
+                                            <div class="stars">
+                                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        <i class="bi bi-quote quote-icon-left"></i>
+                                        Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                                        <i class="bi bi-quote quote-icon-right"></i>
+                                    </p>
+                                </div>
+                            </div>
+                        </div><!-- End testimonial item -->
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-wrap">
+                                <div class="testimonial-item">
+                                    <div class="d-flex align-items-center">
+                                        <img src="{{asset('webassets/img/testimonials/testimonials-2.jpg')}}" class="testimonial-img flex-shrink-0" alt="">
+                                        <div>
+                                            <h3>Sara Wilsson</h3>
+                                            <h4>Designer</h4>
+                                            <div class="stars">
+                                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        <i class="bi bi-quote quote-icon-left"></i>
+                                        Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                                        <i class="bi bi-quote quote-icon-right"></i>
+                                    </p>
+                                </div>
+                            </div>
+                        </div><!-- End testimonial item -->
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-wrap">
+                                <div class="testimonial-item">
+                                    <div class="d-flex align-items-center">
+                                        <img src="{{asset('webassets/img/testimonials/testimonials-3.jpg')}}" class="testimonial-img flex-shrink-0" alt="">
+                                        <div>
+                                            <h3>Jena Karlis</h3>
+                                            <h4>Store Owner</h4>
+                                            <div class="stars">
+                                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        <i class="bi bi-quote quote-icon-left"></i>
+                                        Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                                        <i class="bi bi-quote quote-icon-right"></i>
+                                    </p>
+                                </div>
+                            </div>
+                        </div><!-- End testimonial item -->
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-wrap">
+                                <div class="testimonial-item">
+                                    <div class="d-flex align-items-center">
+                                        <img src="{{asset('webassets/img/testimonials/testimonials-4.jpg')}}" class="testimonial-img flex-shrink-0" alt="">
+                                        <div>
+                                            <h3>Matt Brandon</h3>
+                                            <h4>Freelancer</h4>
+                                            <div class="stars">
+                                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        <i class="bi bi-quote quote-icon-left"></i>
+                                        Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore.
+                                        <i class="bi bi-quote quote-icon-right"></i>
+                                    </p>
+                                </div>
+                            </div>
+                        </div><!-- End testimonial item -->
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-wrap">
+                                <div class="testimonial-item">
+                                    <div class="d-flex align-items-center">
+                                        <img src="{{asset('webassets/img/testimonials/testimonials-5.jpg')}}" class="testimonial-img flex-shrink-0" alt="">
+                                        <div>
+                                            <h3>John Larson</h3>
+                                            <h4>Entrepreneur</h4>
+                                            <div class="stars">
+                                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        <i class="bi bi-quote quote-icon-left"></i>
+                                        Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore.
+                                        <i class="bi bi-quote quote-icon-right"></i>
+                                    </p>
+                                </div>
+                            </div>
+                        </div><!-- End testimonial item -->
+
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+
+            </div>
+        </section><!-- End Testimonials Section -->
+--}}
+
+        {{--<!-- ======= Our Team Section ======= -->
         <section id="team" class="team">
             <div class="container" data-aos="fade-up">
 
@@ -610,7 +587,7 @@
                 </div>
 
             </div>
-        </section><!-- End Our Team Section -->
+        </section><!-- End Our Team Section -->--}}
 
         <!-- ======= Pricing Section ======= -->
         <section id="pricing" class="pricing sections-bg">
@@ -1133,52 +1110,52 @@
 
     </main><!-- End #main -->
 
-{{--    <form action="" method="GET">--}}
-{{--        <div class="row">--}}
-{{--            <div class="col-12 col-sm-6">--}}
-{{--                <select name="category" id="" class="form-control">--}}
-{{--                    <option value="">Select Category</option>--}}
-{{--                    @foreach ($categories as $item)--}}
-{{--                        <option value="{{ $item->id }}">{{ $item->name }}</option>--}}
-{{--                    @endforeach--}}
-{{--                </select>--}}
-{{--            </div>--}}
-{{--            <div class="col-12 col-sm-6">--}}
-{{--                <div class="input-group mb-3">--}}
-{{--                    <input type="text" name="title" class="form-control" placeholder="Book's Title Search">--}}
-{{--                    <button class="btn btn-primary" type="submit">Search</button>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </form>--}}
+    {{--<form action="" method="GET">
+        <div class="row">
+            <div class="col-12 col-sm-6">
+                <select name="category" id="" class="form-control">
+                    <option value="">Select Category</option>
+                    @foreach ($categories as $item)
+                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="col-12 col-sm-6">
+                <div class="input-group mb-3">
+                    <input type="text" name="title" class="form-control" placeholder="Book's Title Search">
+                    <button class="btn btn-primary" type="submit">Search</button>
+                </div>
+            </div>
+        </div>
+    </form>
 
-{{--    <div class="my-5">--}}
-{{--        <div class="row">--}}
+    <div class="my-5">
+        <div class="row">
 
-{{--            @foreach ($books as $item)--}}
-{{--                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">--}}
-{{--                    <div class="card h-100">--}}
-{{--                        <img src="{{ $item->cover != null ? asset('cover/' . $item->cover) : asset('images/cover-default.png') }}"--}}
-{{--                            class="card-img-top img-fluid" alt="Book Cover" draggable="false" height="350px">--}}
-{{--                        <div class="card-body">--}}
-{{--                            <h5 class="card-title text-center">Book Code - {{ $item->book_code }}</h5>--}}
-{{--                            <p class="card-text">Book Title - {{ $item->title }}</p>--}}
-{{--                            <p class="card-text">Book Charges - {{ $item->charges }}</p>--}}
-{{--                            @if (Auth::User() && Auth::User()->role_id === 3)--}}
-{{--                                <div class="col-12 col-md-auto">--}}
-{{--                                    <a href="book-add" class="btn btn-primary me-4">Borrow Request</a>--}}
-{{--                                </div>--}}
-{{--                            @endif--}}
-{{--                            <h6 class="text-end"><span--}}
-{{--                                    class="badge {{ $item->status == 'in stock' ? 'text-bg-success' : 'badge bg-secondary' }}">{{ $item->status }}</span>--}}
-{{--                            </h6>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            @endforeach--}}
+            @foreach ($books as $item)
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <div class="card h-100">
+                        <img src="{{ $item->cover != null ? asset('cover/' . $item->cover) : asset('images/cover-default.png') }}"
+                            class="card-img-top img-fluid" alt="Book Cover" draggable="false" height="350px">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Book Code - {{ $item->book_code }}</h5>
+                            <p class="card-text">Book Title - {{ $item->title }}</p>
+                            <p class="card-text">Book Charges - {{ $item->charges }}</p>
+                            @if (Auth::User() && Auth::User()->role_id === 3)
+                                <div class="col-12 col-md-auto">
+                                    <a href="book-add" class="btn btn-primary me-4">Borrow Request</a>
+                                </div>
+                            @endif
+                            <h6 class="text-end"><span
+                                    class="badge {{ $item->status == 'in stock' ? 'text-bg-success' : 'badge bg-secondary' }}">{{ $item->status }}</span>
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
 
-{{--        </div>--}}
-{{--    </div>--}}
+        </div>
+    </div>--}}
 
     <script>
         function rateBook(star, id){

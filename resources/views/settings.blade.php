@@ -12,9 +12,8 @@
                 @csrf
                 <div class="mb-3">
                     <label for="" class="form-label">Profile Picture</label>
+                    <a href="{{ $profile->avatar != null ? asset('users/' . $profile->avatar) : asset('images/images.png') }}" target="_blank"><img class="rounded-circle" src="{{ $profile->avatar != null ? asset('users/' . $profile->avatar) : asset('images/images.png') }}" alt="Profile Picture" style="height: 150px; width: 150px;"></a>
                     <input type="file" class="form-control" name="image" id="image">
-                    <img src="{{ $profile->avatar != null ? asset('users/' . $profile->avatar) : asset('images/images.png') }}"
-                         alt="Profile Picture" height="150px">
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Username</label>
@@ -26,7 +25,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Address</label>
-                    <textarea class="form-control" name="" id="" rows="5" name="address" style="resize: none">{{ $profile->address }}</textarea>
+                    <textarea class="form-control" id="" rows="5" name="address" style="resize: none">{{ $profile->address }}</textarea>
                 </div>
                 {{--<div class="mb-3">
                     <label for="" class="form-label">Status</label>

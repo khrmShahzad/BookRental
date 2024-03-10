@@ -8,8 +8,9 @@
         <div class="my-5 w-20 col-lg-3 col-md-6">
             <div class="mb-3">
                 <label for="" class="form-label">Profile Picture</label>
-                <img src="{{ $profile->avatar != null ? asset('users/' . $profile->avatar) : asset('images/images.png') }}"
-                     alt="Profile Picture" height="150px">
+                <a href="{{ $profile->avatar != null ? asset('users/' . $profile->avatar) : asset('images/images.png') }}" target="_blank">
+                    <img class="rounded-circle" src="{{ $profile->avatar != null ? asset('users/' . $profile->avatar) : asset('images/images.png') }}" alt="Profile Picture" style="height: 150px; width: 150px;">
+                </a>
             </div>
             <div class="mb-3">
                 <label for="" class="form-label">Username</label>

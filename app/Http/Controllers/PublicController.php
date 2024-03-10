@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\BookCategory;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -20,6 +21,12 @@ class PublicController extends Controller
             $books = Book::all();
         }
 
+        if ($books){
+            foreach ($books as $book){
+                $categoryDetails = BookCategory::select('category_id')->where('book_id', $book['id'])->first();
+                $book['category_id'] = $categoryDetails['category_id'];
+            }
+        }
         return view('book-list', ['books' => $books, 'categories' => $categories]);
     }
 }

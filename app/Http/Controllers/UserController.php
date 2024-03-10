@@ -32,11 +32,16 @@ class UserController extends Controller
             $extension = $request->file('image')->getClientOriginalExtension();
             $newName = 'user-' . now()->timestamp . '.' . $extension;
             $request->file('image')->move(public_path('users'), $newName);
+            //$request->avatar = $newName;
+
+            $request->merge(['avatar' => $newName]);
         }
 
         $user = User::find(Auth::user()->id);
 
         $user->update($request->all());
+
+        Session::flash('message', "Settings has been Updated successfully!");
 
         return redirect()->back()->with('status', 'Settings has been Updated successfully!');
 

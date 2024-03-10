@@ -77,13 +77,18 @@ class BookController extends Controller
         if ($request->file('image')) {
             $extension = $request->file('image')->getClientOriginalExtension();
             $newName = $request->title . '-' . now()->timestamp . '.' . $extension;
-            $request->file('image')->storeAs('cover', $newName);
+//            $request->file('image')->storeAs('cover', $newName);
+            $request->file('image')->move(public_path('cover'), $newName);
             $request['cover'] = $newName;
         }
 
         $book = Book::where('slug', $slug)->first();
 
-        Storage::disk('public')->delete('cover/' . $book->cover);
+        if (file_exists(public_path('cover/'. $book->cover))){
+            unlink(public_path('cover/'. $book->cover));
+
+        }
+        //Storage::disk('public')->delete('cover/' . $book->cover);
 
         $book->update($request->all());
 

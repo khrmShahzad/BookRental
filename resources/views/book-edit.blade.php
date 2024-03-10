@@ -37,7 +37,7 @@
                 <div class="mb-3">
                     <label for="image" class="form-label fw-bold">Cover Image</label>
                     @if ($book->cover != '')
-                        <img src="{{ asset('storage/cover/' . $book->cover) }}" alt="Cover Image"
+                        <img src="{{ asset('cover/' . $book->cover) }}" alt="Cover Image"
                             class="img-fluid mb-3 d-block" width="200px">
                     @else
                         <img src="{{ asset('images/cover-default.png') }}" alt="Cover Image" class="img-fluid mb-3 d-block"
