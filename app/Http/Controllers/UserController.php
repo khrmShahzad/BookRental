@@ -49,6 +49,17 @@ class UserController extends Controller
 
     }
 
+    public function usersss(Request $request)
+    {
+        $keyword = $request->keyword;
+
+        $users = User::where('role_id', '!=' , 1)->where([
+            ['status', 'active'],
+            ['username', 'LIKE', '%' . $keyword . '%']
+        ])
+            ->paginate(10);
+        return view('user', ['users' => $users]);
+    }
     public function index(Request $request)
     {
         $keyword = $request->keyword;

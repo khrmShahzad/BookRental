@@ -86,6 +86,7 @@ Route::middleware('auth')->group(function () {
         Route::delete('category-permanent-delete/{slug}', [CategoryController::class, 'permanentDelete']);
 
         Route::get('users', [UserController::class, 'index']);
+        Route::get('usersss', [UserController::class, 'usersss']);
         Route::get('registered-users', [UserController::class, 'registeredUsers']);
         Route::get('user-detail/{slug}', [UserController::class, 'show']);
         Route::get('user-approve/{slug}', [UserController::class, 'approve']);

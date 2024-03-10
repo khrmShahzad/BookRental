@@ -73,7 +73,7 @@
                                             class="bi bi-tags-fill"></i> Categories</a>
                                 </li>
                                 <li class="nav-item mb-3">
-                                    <a href="/users"
+                                    <a href="/usersss"
                                         class="nav-link @if (in_array(request()->route()->uri, [
                                                 'users',
                                                 'registered-users',
