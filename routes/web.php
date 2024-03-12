@@ -23,7 +23,7 @@ use App\Http\Controllers\BorrowController;
 */
 
 Route::get('/', [PublicController::class, 'index']);
-
+Route::get('book-detail/{id}', [BookController::class, 'details']);//->name('borrow.request');
 
 Route::middleware('guest')->group(function () {
     Route::get('login', [AuthController::class, 'login'])->name('login');

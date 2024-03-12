@@ -45,7 +45,8 @@ class BookController extends Controller
         // validation
         $validated = $request->validate([
             'book_code' => 'required|unique:books|max:255',
-            'title' => 'required|max:255'
+            'title' => 'required|max:255',
+            'charges' => 'required'
         ]);
 
         $newName = '';
@@ -86,8 +87,8 @@ class BookController extends Controller
 
         if (file_exists(public_path('cover/'. $book->cover))){
             unlink(public_path('cover/'. $book->cover));
-
         }
+
         //Storage::disk('public')->delete('cover/' . $book->cover);
 
         $book->update($request->all());
@@ -108,6 +109,11 @@ class BookController extends Controller
     public function destroy($slug)
     {
         $book = Book::where('slug', $slug)->first();
+
+        if (file_exists(public_path('cover/'. $book->cover))){
+            unlink(public_path('cover/'. $book->cover));
+        }
+
         $book->delete();
         return redirect('books')->with('status', 'Book Deleted Successfully!');
     }
@@ -141,5 +147,13 @@ class BookController extends Controller
         }
 
         return redirect('/books');
+    }
+
+    public function details($id)
+    {
+        $book = Book::find($id);
+        //dd($book);
+        $categories = Category::all();
+        return view('book-detail', ['book' => $book, 'categories' => $categories]);
     }
 }

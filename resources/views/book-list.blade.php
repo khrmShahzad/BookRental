@@ -85,21 +85,16 @@
                                 <div class="portfolio-wrap">
                                     <a href="{{ $item->cover != null ? asset('cover/' . $item->cover) : asset('images/cover-default.png') }}" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{{ $item->cover != null ? asset('cover/' . $item->cover) : asset('images/cover-default.png') }}" class="img-fluid" alt=""></a>
                                     <div class="portfolio-info">
-                                        <h4><a href="portfolio-details.html" title="More Details">Book Title - {{ $item->title }}</a></h4>
+                                        <h4><a href="book-detail/{{ $item->id }}" title="More Details">Book Title - {{ $item->title }}</a></h4>
                                         <p>Book Charges - {{ $item->charges }}</p>
                                         <p>Ratings</p>
-                                        @for($i=0;$i<5;$i++)
-
-                                            @if($i < $item->overall_rating)
-                                                @if (Auth::User() && Auth::User()->role_id === 3)
-                                                    <i class="bi bi-star" title="Login to rate your books" style="cursor:pointer"></i>
-                                                @endif
-
+                                        @for($i=1;$i<6;$i++)
+                                            @if($item->overall_rating == 0)
+                                                <i class="bi bi-star" title="Login to rate your books" style="cursor:pointer"></i>
+                                            @elseif($i <= $item->overall_rating)
+                                                <i class="bi bi-star" title="Login to rate your books" style="cursor:pointer; color: greenyellow" ></i>
                                             @else
-                                                @if (Auth::User() && Auth::User()->role_id === 3)
-                                                    <i class="bi bi-star" title="Login to rate your books" style="cursor:pointer; color: greenyellow" ></i>
-                                                @endif
-
+                                                <i class="bi bi-star" title="Login to rate your books" style="cursor:pointer"></i>
                                             @endif
                                         @endfor
                                         @if (Auth::User() && Auth::User()->role_id === 3)

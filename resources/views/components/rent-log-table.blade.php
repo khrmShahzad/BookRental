@@ -22,25 +22,33 @@
                     <td>{{ $item->return_date }}</td>
                     <td>{{ $item->actual_return_date }}</td>
                     <td>
-                        @for($i=0;$i<5;$i++)
 
-                            @if($i < $item->overall_rating)
-                                @if (Auth::User() && Auth::User()->role_id === 3)
-                                    <i class="bi bi-star" title="Click to rate this book" style="cursor:pointer" onclick="rateBook({{$i+1}}, {{$item->book_id}})"></i>
+                        @if (Auth::User()->role_id === 3)
+
+                            @for($i=1;$i<6;$i++)
+                                @if($item->overall_rating == 0)
+                                    <i class="bi bi-star" title="Click to rate this books" style="cursor:pointer" onclick="rateBook({{$i+1}}, {{$item->book_id}})"></i>
+                                @elseif($i <= $item->overall_rating)
+                                    <i class="bi bi-star" title="Click to rate this books" style="cursor:pointer; color: greenyellow" onclick="rateBook({{$i+1}}, {{$item->book_id}})"></i>
                                 @else
-                                    <i class="bi bi-star"  title="Login to rate this book" style="cursor:pointer"></i>
+                                    <i class="bi bi-star" title="Click to rate this books" style="cursor:pointer" onclick="rateBook({{$i+1}}, {{$item->book_id}})"></i>
                                 @endif
+                            @endfor
 
-                            @else
+                        @else
 
-                                @if (Auth::User() && Auth::User()->role_id === 3)
-                                    <i class="bi bi-star" title="Click to rate this book" style="cursor:pointer; color: greenyellow" onclick="rateBook({{$i+1}}, {{$item->book_id}})"></i>
+                            @for($i=1;$i<6;$i++)
+                                @if($item->overall_rating == 0)
+                                    <i class="bi bi-star" title="Rating of this books" style="cursor:pointer"></i>
+                                @elseif($i <= $item->overall_rating)
+                                    <i class="bi bi-star" title="Rating of this books" style="cursor:pointer; color: greenyellow"></i>
                                 @else
-                                    <i class="bi bi-star"  title="Login to rate this book" style="cursor:pointer; color: greenyellow"></i>
+                                    <i class="bi bi-star" title="Rating of this books" style="cursor:pointer></i>
                                 @endif
+                            @endfor
 
-                            @endif
-                        @endfor
+                        @endif
+
                     </td>
                 </tr>
             @endforeach
@@ -69,9 +77,10 @@
             },
             success: function (response) {
                 if (response.status == "success") {
-                    /*setTimeout(function () {
-                        window.location.href = "{ { route("admin-player-list")}}";
-                    }, 1000);*/
+                    setTimeout(function () {
+                        location.reload();
+                        //window.location.href = "{ { route("admin-player-list")}}";
+                    }, 1000);
 
                     console.log(response);
 

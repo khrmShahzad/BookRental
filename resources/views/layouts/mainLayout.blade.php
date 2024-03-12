@@ -30,7 +30,9 @@
                     @if (Auth::User()->role_id === 1)
                         <span style="color: white;">Admin</span>
                     @elseif (Auth::User()->role_id === 2)
-                        <span style="color: white;">Lender</span>
+                        <span style="color: white;">{{Auth::User()->username}} - Lender</span>
+                    @elseif (Auth::User()->role_id === 3)
+                        <span style="color: white;">{{Auth::User()->username}} - Borrower</span>
                     @endif
                 @endif
             </div>
@@ -172,7 +174,7 @@
                                             class="bi bi-gear"></i> Settings</a>
                                 </li>
                                 <li class="nav-item mb-3">
-                                    <a href="/"
+                                    <a href="/#books"
                                         class="nav-link @if (request()->route()->uri == '/') active @endif"><i
                                             class="bi bi-journals"></i> Book List</a>
                                 </li>

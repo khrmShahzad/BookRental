@@ -18,7 +18,7 @@
     @endif
 
     <div class="mt-5 d-flex justify-content-end">
-        <a href="users" class="btn btn-primary me-4">Approved User List</a>
+        <a href="usersss" class="btn btn-primary me-4">Approved User List</a>
     </div>
 
     <div class="my-5">

@@ -35,7 +35,7 @@
             </a>
         </div>
         <div class="col-lg-4">
-            <a href="/users" style="text-decoration:none;">
+            <a href="/usersss" style="text-decoration:none;">
                 <div class="card-data user">
                     <div class="row">
                         <div class="col-6 d-flex justify-content-center"><i class="bi bi-people"></i></div>
