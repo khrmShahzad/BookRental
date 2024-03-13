@@ -236,7 +236,7 @@
             </div>
         </section><!-- End Portfolio Section -->
 
-        <!-- ======= Clients Section ======= -->
+        {{--<!-- ======= Clients Section ======= -->
         <section id="clients" class="clients">
             <div class="container" data-aos="zoom-out">
 
@@ -254,9 +254,9 @@
                 </div>
 
             </div>
-        </section><!-- End Clients Section -->
+        </section><!-- End Clients Section -->--}}
 
-        <!-- ======= Stats Counter Section ======= -->
+        {{--<!-- ======= Stats Counter Section ======= -->
         <section id="stats-counter" class="stats-counter">
             <div class="container" data-aos="fade-up">
 
@@ -288,7 +288,7 @@
                 </div>
 
             </div>
-        </section><!-- End Stats Counter Section -->
+        </section><!-- End Stats Counter Section -->--}}
 
         {{--<!-- ======= Call To Action Section ======= -->
         <section id="call-to-action" class="call-to-action">
@@ -584,7 +584,7 @@
             </div>
         </section><!-- End Our Team Section -->--}}
 
-        <!-- ======= Pricing Section ======= -->
+        {{--<!-- ======= Pricing Section ======= -->
         <section id="pricing" class="pricing sections-bg">
             <div class="container" data-aos="fade-up">
 
@@ -653,9 +653,9 @@
                 </div>
 
             </div>
-        </section><!-- End Pricing Section -->
+        </section><!-- End Pricing Section -->--}}
 
-        <!-- ======= Frequently Asked Questions Section ======= -->
+        {{--<!-- ======= Frequently Asked Questions Section ======= -->
         <section id="faq" class="faq">
             <div class="container" data-aos="fade-up">
 
@@ -750,9 +750,9 @@
                 </div>
 
             </div>
-        </section><!-- End Frequently Asked Questions Section -->
+        </section><!-- End Frequently Asked Questions Section -->--}}
 
-        <!-- ======= Recent Blog Posts Section ======= -->
+        {{--<!-- ======= Recent Blog Posts Section ======= -->
         <section id="recent-posts" class="recent-posts sections-bg">
             <div class="container" data-aos="fade-up">
 
@@ -844,7 +844,7 @@
                 </div><!-- End recent posts list -->
 
             </div>
-        </section><!-- End Recent Blog Posts Section -->
+        </section><!-- End Recent Blog Posts Section -->--}}
 
         {{--<!-- ======= Contact Section ======= -->
         <section id="contact" class="contact">

@@ -36,7 +36,7 @@
 
 <body>
 
-@include('top-bar')
+{{--@include('top-bar')--}}
 
 @include('header')
 

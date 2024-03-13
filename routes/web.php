@@ -23,7 +23,7 @@ use App\Http\Controllers\BorrowController;
 */
 
 Route::get('/', [PublicController::class, 'index']);
-Route::get('book-detail/{id}', [BookController::class, 'details']);//->name('borrow.request');
+Route::get('book-detail/{id}', [BookController::class, 'details']);
 
 Route::middleware('guest')->group(function () {
     Route::get('login', [AuthController::class, 'login'])->name('login');
@@ -53,7 +53,6 @@ Route::middleware('auth')->group(function () {
         Route::get('borrow-req/{id}', [BorrowController::class, 'index'])->name('borrow.request');
 
         Route::post('checkout', [BorrowController::class, 'checkout']);
-        Route::get('success', [BorrowController::class, 'success'])->name('success');
 
 
         Route::get('/checkout', 'App\Http\Controllers\BorrowController@checkout2')->name('checkout');
