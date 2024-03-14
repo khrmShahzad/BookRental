@@ -40,7 +40,7 @@
                         <img src="{{ asset('cover/' . $book->cover) }}" alt="Cover Image"
                             class="img-fluid mb-3 d-block" width="200px">
                     @else
-                        <img src="{{ asset('images/cover-default.png') }}" alt="Cover Image" class="img-fluid mb-3 d-block"
+                        <img src="{{ asset('cover/cover-default1.png') }}" alt="Cover Image" class="img-fluid mb-3 d-block"
                             width="200px">
                     @endif
 

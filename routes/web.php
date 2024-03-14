@@ -47,6 +47,7 @@ Route::middleware('auth')->group(function () {
     Route::get('get-user-books/{user_id}', [BookRentController::class, 'getUserBooks']);
     Route::post('book-return', [BookRentController::class, 'saveReturnBook']);
     Route::post('rate-book', [BookRentController::class, 'rateBook']);
+    Route::post('return-book', [BookRentController::class, 'returnBookNew']);
 
     Route::middleware('only_client')->group(function () {
 //        Route::get('borrow-req/{id}', [BorrowController::class, 'index']);

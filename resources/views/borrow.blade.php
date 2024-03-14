@@ -30,7 +30,7 @@
 
                     <div class="mb-3">
                         <label for="" class="form-label">Book Cover</label>
-                        <img src="{{ $book->cover != null ? asset('cover/' . $book->cover) : asset('images/cover-default.png') }}" alt="Book Cover" height="150px">
+                        <img src="{{ $book->cover != null ? asset('cover/' . $book->cover) : asset('cover/cover-default1.png') }}" alt="Book Cover" height="150px">
                         <input type='hidden' name="book_id" value="{{$book->id}}">
                     </div>
 

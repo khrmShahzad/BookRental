@@ -27,6 +27,9 @@ class PublicController extends Controller
                 $book['category_id'] = $categoryDetails['category_id'];
             }
         }
-        return view('book-list', ['books' => $books, 'categories' => $categories]);
+
+        $recent_books = Book::orderBy('created_at', 'desc')->take(3)->get();
+
+        return view('book-list', ['books' => $books, 'categories' => $categories, 'recent_books' => $recent_books]);
     }
 }

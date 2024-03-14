@@ -9,6 +9,7 @@
                 <th class="col-sm-2">Return Date</th>
                 <th class="col-sm-2">Actual Return Date</th>
                 <th class="col-sm-2">Ratings</th>
+                <th class="col-sm-2">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -47,6 +48,14 @@
                                 @endif
                             @endfor
 
+                        @endif
+
+                    </td>
+                    <td>
+                        @if($item->actual_return_date == '' || $item->actual_return_date == null)
+                            <button type="button" class="btn btn-primary" onclick="returnBook({{$item->id}}, {{$item->book_id}})">Return Book</button>
+                        @else
+                            Returned
                         @endif
 
                     </td>
@@ -91,4 +100,38 @@
         });
 
     }
+
+    function returnBook(id, book_id){
+
+        var formData = new FormData();
+        formData.append('id', id);
+        formData.append('book_id', book_id);
+
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            url: "{{ url("return-book") }}",
+            data: formData,
+            processData: false,
+            contentType: false,
+            headers: {
+                'X-CSRF-TOKEN': csrfToken,
+            },
+            success: function (response) {
+                if (response.status == "success") {
+                    setTimeout(function () {
+                        location.reload();
+                        //window.location.href = "{ { route("admin-player-list")}}";
+                    }, 1000);
+
+                    console.log(response);
+
+                } else {
+                    console.log(response);
+                }
+            }
+        });
+
+    }
+
 </script>

@@ -52,7 +52,7 @@
             </div>
         </section><!-- End About Us Section -->--}}
 
-        <!-- ======= Portfolio Section ======= -->
+        <!-- ======= Books Section ======= -->
         <section id="books" class="portfolio sections-bg">
             <div class="container" data-aos="fade-up">
 
@@ -83,11 +83,12 @@
 
                             <div class="col-xl-4 col-md-6 portfolio-item filter-{{$item->category_id}}">
                                 <div class="portfolio-wrap">
-                                    <a href="{{ $item->cover != null ? asset('cover/' . $item->cover) : asset('images/cover-default.png') }}" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{{ $item->cover != null ? asset('cover/' . $item->cover) : asset('images/cover-default.png') }}" class="img-fluid" alt=""></a>
+                                    <a href="{{ $item->cover != null ? asset('cover/' . $item->cover) : asset('cover/cover-default1.png') }}" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{{ $item->cover != null ? asset('cover/' . $item->cover) : asset('cover/cover-default1.png') }}" class="img-fluid" alt=""></a>
                                     <div class="portfolio-info">
                                         <h4><a href="book-detail/{{ $item->id }}" title="More Details">Book Title - {{ $item->title }}</a></h4>
                                         <p>Book Charges - {{ $item->charges }}</p>
-                                        <p>Ratings</p>
+                                        <p>Status - {{ $item->status }}</p>
+                                        <p style="display: inline">Ratings</p>
                                         @for($i=1;$i<6;$i++)
                                             @if($item->overall_rating == 0)
                                                 <i class="bi bi-star" title="Login to rate your books" style="cursor:pointer"></i>
@@ -97,7 +98,7 @@
                                                 <i class="bi bi-star" title="Login to rate your books" style="cursor:pointer"></i>
                                             @endif
                                         @endfor
-                                        @if (Auth::User() && Auth::User()->role_id === 3)
+                                        @if (Auth::User() && Auth::User()->role_id === 3 && $item->status == 'in stock')
                                             <div class="col-12 col-md-auto">
                                                 <a href="borrow-req/{{ $item->id }}" class="btn btn-primary me-4">Borrow Request</a>
                                             </div>
@@ -752,18 +753,46 @@
             </div>
         </section><!-- End Frequently Asked Questions Section -->--}}
 
-        {{--<!-- ======= Recent Blog Posts Section ======= -->
+        @if($recent_books)
+        <!-- ======= Recent Blog Posts Section ======= -->
         <section id="recent-posts" class="recent-posts sections-bg">
             <div class="container" data-aos="fade-up">
 
                 <div class="section-header">
-                    <h2>Recent Blog Posts</h2>
+                    <h2>Recently Added Books</h2>
                     <p>Consequatur libero assumenda est voluptatem est quidem illum et officia imilique qui vel architecto accusamus fugit aut qui distinctio</p>
                 </div>
 
                 <div class="row gy-4">
 
+                    @foreach($recent_books as $recent)
                     <div class="col-xl-4 col-md-6">
+                        <article>
+
+                            <div class="post-img">
+                                <img src="{{ $recent->cover != null ? asset('cover/' . $recent->cover) : asset('cover/cover-default1.png') }}" alt="" class="img-fluid">
+                            </div>
+
+                            <p class="post-category">{{ $recent->title }}</p>
+
+                            <h2 class="title">
+                                <a href="book-detail/{{ $recent->id }}">Click to see details</a>
+                            </h2>
+
+                            <div class="d-flex align-items-center">
+                                <img src="{{ $recent->cover != null ? asset('cover/' . $recent->cover) : asset('cover/cover-default.png') }}" alt="" class="img-fluid post-author-img flex-shrink-0">
+                                <div class="post-meta">
+                                    <p class="post-author">Charges - {{ $recent->charges }}</p>
+                                    <p class="post-date">
+                                        <time datetime="2022-01-01">Status - {{ $recent->status }}</time>
+                                    </p>
+                                </div>
+                            </div>
+
+                        </article>
+                    </div><!-- End post list item -->
+                    @endforeach
+                    {{--<div class="col-xl-4 col-md-6">
                         <article>
 
                             <div class="post-img">
@@ -839,13 +868,13 @@
                             </div>
 
                         </article>
-                    </div><!-- End post list item -->
+                    </div><!-- End post list item -->--}}
 
                 </div><!-- End recent posts list -->
 
             </div>
-        </section><!-- End Recent Blog Posts Section -->--}}
-
+        </section><!-- End Recent Blog Posts Section -->
+        @endif
         {{--<!-- ======= Contact Section ======= -->
         <section id="contact" class="contact">
             <div class="container" data-aos="fade-up">

@@ -157,4 +157,27 @@ class BookRentController extends Controller
         return response()->json($responseData);
 
     }
+
+    public function returnBookNew(Request $request)
+    {
+        $id = $request->id;
+        $book_id = $request->book_id;
+
+        $rentData = RentLogs::find($id);
+        $rentData->actual_return_date = Carbon::now()->toDateString();
+        $rentData->save();
+
+        $book = Book::findOrFail($book_id);
+        $book->status = 'in stock';
+        $book->save();
+
+        $responseData = [
+            'message' => 'Book has been returned',
+            'status' => 'success'
+        ];
+
+        return response()->json($responseData);
+
+    }
+
 }

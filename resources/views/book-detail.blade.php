@@ -37,7 +37,7 @@
                     <div class="swiper-wrapper align-items-center">
 
                         <div class="swiper-slide">
-                            <img src="{{ $book->cover != null ? asset('cover/' . $book->cover) : asset('images/cover-default.png') }}" alt="">
+                            <img src="{{ $book->cover != null ? asset('cover/' . $book->cover) : asset('cover/cover-default1.png') }}" alt="">
                         </div>
 
                     </div>
@@ -66,7 +66,7 @@
                             @endif
                         @endfor
 
-                        @if (Auth::User() && Auth::User()->role_id === 3)
+                        @if (Auth::User() && Auth::User()->role_id === 3 && $book->status == 'in stock')
                             <div class="col-12 col-md-auto">
                                 <a href="borrow-req/{{ $item->id }}" class="btn btn-primary me-4">Borrow Request</a>
                             </div>
