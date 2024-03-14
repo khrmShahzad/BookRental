@@ -20,81 +20,8 @@
 
     <div class="my-5">
 
-{{--        <form action="/checkout" method="POST" role="form" class="php-email-form" enctype="multipart/form-data">--}}
-
-        {{--<form id="payment-form" role="form" action="/checkout" method="post" class="require-validation" data-cc-on-file="false"
-            data-stripe-publishable-key="pk_test_51MJi96GnHe8EDgGnjksmzsLjffnAVp0JRJO5soO6ySn0GjBjghMxRNkr9qAxMvQ1EDbBEXSOFeAJPY5u7JtPzWtz00RuWYZA47">
-
-            <div class="row">
-                @csrf
-                <div class="my-5 w-20 col-md-6">
-
-                    <div class="col-sm-6">
-                        <div class="mb-3">
-                            <label for="" class="form-label">Book Cover</label>
-                            <img src="{{ $book->cover != null ? asset('cover/' . $book->cover) : asset('images/cover-default.png') }}" alt="Book Cover" height="150px">
-                            <input type='hidden' value="{{$book->id}}">
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Book Code</label>
-                            <input type="text" class="form-control" name="book_code" readonly value="{{ $book->book_code }}">
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Status</label>
-                            <input type="text" class="form-control" name="status" readonly value="{{ $book->status }}">
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Charges</label>
-                            <input type="text" class="form-control" name="charges" readonly value="{{ $book->charges }}">
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="my-5 w-20 col-md-6">
-
-                    <div class="col-sm-6">
-                        <div class="mb-3">
-                            <label for="" class="form-label">Enter bank details to complete your request</label>
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Name on Card</label>
-                            <input type="text" class="form-control" name="card_holder_name" size='4'>
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Card Number</label>
-                            <input type="text" class="form-control" name="card_number" size='20'>
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">CVC</label>
-                            <input autocomplete='off' type="text" class="form-control" name="cvc" placeholder='ex. 311' size='4'>
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Expiration Month</label>
-                            <input autocomplete='off' type="text" class="form-control" name="expiration_month" placeholder='MM' size='2'>
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Expiration Year</label>
-                            <input autocomplete='off' type="text" class="form-control" name="expiration_year" placeholder='YYYY' size='4'>
-                        </div>
-                    </div>
-
-                </div>
-
-
-
-            </div>
-            <div class="text-end"><button class="btn btn-sm btn-secondary" type="submit">Checkout</button></div>
-        </form>--}}
-
-        <form
-            role="form"
-            action="/checkout"
-            method="post"
-            class="require-validation"
-            data-cc-on-file="false"
-            data-stripe-publishable-key="pk_test_51IyFaOFkT1UraQaBJNVXP5C9keLc7QCLsGDgdQr3w3RFlMHhIf3UvP1nL3Vt0aGMmP4UPHK1HQhIUkYXBaRpShQK00mRgLwiSh"
-            id="payment-form">
+        <form action="/checkout" method="post" id="payment-form" role="form" class="require-validation" data-cc-on-file="false"
+        data-stripe-publishable-key="pk_test_51OuCTPDVHG7hkxkW1dYO9UcsVKKo8HP7V5Kf0zJVJWA6uB5ijXomKFTCQDd7zRAM7ZT8FLnWXMFQiDo7ZN0erRMf00P6tK2P36">
             @csrf
 
             <div class="row">

@@ -55,7 +55,7 @@ Route::middleware('auth')->group(function () {
         Route::post('checkout', [BorrowController::class, 'checkout']);
 
 
-        Route::get('/checkout', 'App\Http\Controllers\BorrowController@checkout2')->name('checkout');
+//        Route::get('/checkout', 'App\Http\Controllers\BorrowController@checkout2')->name('checkout');
         Route::get('/success', 'App\Http\Controllers\BorrowController@success')->name('success');
     });
 

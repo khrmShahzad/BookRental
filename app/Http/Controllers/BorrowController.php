@@ -26,70 +26,54 @@ class BorrowController extends Controller
     {
 
 
-//        $request['rent_date'] = Carbon::now()->toDateString();
-//        $request['return_date'] = Carbon::now()->addDay(7)->toDateString();
+        $request['rent_date'] = Carbon::now()->toDateString();
+        $request['return_date'] = Carbon::now()->addDay(7)->toDateString();
+        $request['user_id'] = Auth::user()->id;
 
-//        dd($request->book_id);
+//        $book = Book::findOrFail($request->book_id)->only('status');
+        $book = Book::where('book_code',$request->book_code)->first();//only('status');
 
-        $book = Book::findOrFail($request->book_id)->only('status');
-
+        $request->merge(['book_id' => $book->id]);
         // if book = not available
         if ($book['status'] != 'in stock') {
-            Session::flash('message', "Can't rent, the book is not available");
-            Session::flash('alert-class', "alert-danger");
+            Session::flash('status', "Can't rent, the book is not available");
             return back();
-            //return redirect('borrow-req/'.$request->book_id);
         } else {
             $count = RentLogs::where('user_id', $request->user_id)->where('actual_return_date', null)->count();
 
             if ($count >= 3) {
 
-                Session::flash('message', "Can't rent, user has reach limit of books");
-                Session::flash('alert-class', "alert-danger");
+                Session::flash('status', "Can't rent, user has reach limit of books");
 
                 return back();
-//                return redirect('/');
 
             } else {
 
-                try {
+                // process insert to rent_logs table
+                RentLogs::create($request->all());
 
-                    DB::beginTransaction();
+                // process update book table
+                $book = Book::findOrFail($request->book_id);
+                $book->status = 'not available';
+                $book->save();
 
-                    // process insert to rent_logs table
-                    RentLogs::create($request->all());
+                Stripe\Stripe::setApiKey('sk_test_51OuCTPDVHG7hkxkWNKqQstjHSt07DTdHAq87kTdWZEj1OYOdvEr0mlHLfz1o1JyBJQOhwgct5oNr7OUinMBCb7VQ00UEJsmQeV');
 
-                    // process update book table
-                    $book = Book::findOrFail($request->book_id);
-                    $book->status = 'not available';
-                    $book->save();
-                    DB::commit();
+                $session = Stripe\Charge::create ([
+                    "amount" => 100 * $request->charges,
+                    "currency" => "usd",
+                    "source" => $request->stripeToken,
+                    "description" => "Book Code ".$request->book_code." has been order by ".Auth::user()->username
+                ]);
 
-                    Stripe\Stripe::setApiKey('sk_test_51IyFaOFkT1UraQaB6kV44FKopRG6xRNx9yUqFj6UPkqkgLCEZX9O7lee5nUqbvY0atahtCmTTleP6jpHsQugjXdI00bRwEbgca');
-
-                    $session = Stripe\Charge::create ([
-                        "amount" => 100 * $request->charges,
-                        "currency" => "usd",
-                        "source" => $request->stripeToken,
-                        "description" => "Book Code ".$request->book_code." has been order by ".Auth::user()->username
-                    ]);
-
-                    if ($session){
-                        Session::flash('status', 'success');
-                        Session::flash('message', "Book has been borrowed successfully");
-                    }else{
-                        Session::flash('message', "Can't rent, something went wrong");
-                        Session::flash('alert-class', "alert-danger");
-                    }
-
-                    return back();
-
-
-
-
-                } catch (\Throwable $th) {
-                    DB::rollBack();
+                if ($session){
+                    Session::flash('status', "Book has been borrowed successfully");
+                }else{
+                    Session::flash('status', "Can't rent, something went wrong");
                 }
+
+                return back();
+
             }
         }
 
