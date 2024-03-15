@@ -24,7 +24,11 @@ class PublicController extends Controller
         if ($books){
             foreach ($books as $book){
                 $categoryDetails = BookCategory::select('category_id')->where('book_id', $book['id'])->first();
-                $book['category_id'] = $categoryDetails['category_id'];
+                if ($categoryDetails){
+                    $book['category_id'] = $categoryDetails['category_id'];
+                }else{
+                    $book['category_id'] = '';
+                }
             }
         }
 
