@@ -58,7 +58,7 @@
 
                 <div class="section-header">
                     <h2>Books</h2>
-                    <p>Quam sed id excepturi ccusantium dolorem ut quis dolores nisi llum nostrum enim velit qui ut et autem uia reprehenderit sunt deleniti</p>
+                    <p>Great Platform to have a variety of knowledgeable books</p>
                 </div>
 
                 <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order" data-aos="fade-up" data-aos-delay="100">
@@ -1181,9 +1181,4 @@
         </div>
     </div>--}}
 
-    <script>
-        function rateBook(star, id){
-
-        }
-    </script>
 @endsection

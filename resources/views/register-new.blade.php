@@ -23,7 +23,7 @@
                                 <i class="bi bi-geo-alt flex-shrink-0"></i>
                                 <div>
                                     <h4>Location:</h4>
-                                    <p>A108 Adam Street, New York, NY 535022</p>
+                                    <p>hafar al-batin, University of hafar al-batin, SWE department.</p>
                                 </div>
                             </div><!-- End Info Item -->
 
@@ -31,23 +31,23 @@
                                 <i class="bi bi-envelope flex-shrink-0"></i>
                                 <div>
                                     <h4>Email:</h4>
-                                    <p>info@example.com</p>
+                                    <p>Rental.Book.info@gmail.com</p>
                                 </div>
                             </div><!-- End Info Item -->
 
-                            <div class="info-item d-flex">
+                            {{--<div class="info-item d-flex">
                                 <i class="bi bi-phone flex-shrink-0"></i>
                                 <div>
                                     <h4>Call:</h4>
                                     <p>+1 5589 55488 55</p>
                                 </div>
-                            </div><!-- End Info Item -->
+                            </div><!-- End Info Item -->--}}
 
                             <div class="info-item d-flex">
                                 <i class="bi bi-clock flex-shrink-0"></i>
                                 <div>
                                     <h4>Open Hours:</h4>
-                                    <p>Mon-Sat: 11AM - 23PM</p>
+                                    <p>Sunday-Thursday: 11AM - 23PM</p>
                                 </div>
                             </div><!-- End Info Item -->
                         </div>
@@ -64,7 +64,7 @@
                                 <input type="password" name="password" class="form-control" id="password" placeholder="Enter password" required>
                             </div>
                             <div class="form-group mt-3">
-                                <input type="text" name="phone" class="form-control" id="phone" placeholder="Enter Phone" required>
+                                <input type="text" name="phone" class="form-control" id="phone" placeholder="1234567890" required>
                             </div>
 
                             <div class="form-group mt-3">

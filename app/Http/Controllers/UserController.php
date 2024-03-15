@@ -105,7 +105,7 @@ class UserController extends Controller
         $user = User::where('slug', $slug)->first();
         $user->delete();
 
-        return redirect('users')->with('status', 'User Banned Successfully!');
+        return redirect('usersss')->with('status', 'User Banned Successfully!');
     }
 
     public function bannedUsers()

@@ -7,7 +7,7 @@
                 <a href="#" class="logo d-flex align-items-center">
                     <span>Rental Books</span>
                 </a>
-                <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+                <p>Discover the joy of reading with our online book rental platform. Whether you're seeking captivating stories or looking to share your favorites, we offer a convenient lending service for both readers and lenders. Dive into a world of literature and join our community of book lovers today!</p>
                 <div class="social-links d-flex mt-4">
                     <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
                     <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
@@ -20,14 +20,11 @@
                 <h4>Useful Links</h4>
                 <ul>
                     <li><a href="#">Home</a></li>
-                    <li><a href="#">About us</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Terms of service</a></li>
-                    <li><a href="#">Privacy policy</a></li>
+                    <li><a href="#">Books</a></li>
                 </ul>
             </div>
 
-            <div class="col-lg-2 col-6 footer-links">
+            {{--<div class="col-lg-2 col-6 footer-links">
                 <h4>Our Services</h4>
                 <ul>
                     <li><a href="#">Web Design</a></li>
@@ -36,16 +33,16 @@
                     <li><a href="#">Marketing</a></li>
                     <li><a href="#">Graphic Design</a></li>
                 </ul>
-            </div>
+            </div>--}}
 
             <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
                 <h4>Contact Us</h4>
                 <p>
-                    A108 Adam Street <br>
-                    New York, NY 535022<br>
-                    United States <br><br>
-                    <strong>Phone:</strong> +1 5589 55488 55<br>
-                    <strong>Email:</strong> info@example.com<br>
+                    hafar al-batin, <br>
+                    University of hafar al-batin,<br>
+                    SWE department. <br><br>
+                    <strong>Open Hours::</strong> Sunday-Thursday: 11AM - 23PM<br>
+                    <strong>Email:</strong> Rental.Book.info@gmail.com<br>
                 </p>
 
             </div>

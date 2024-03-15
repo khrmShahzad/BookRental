@@ -85,7 +85,8 @@ class BookController extends Controller
 
         $book = Book::where('slug', $slug)->first();
 
-        if (file_exists(public_path('cover/'. $book->cover))){
+
+        if ($book->cover != '' && file_exists(public_path('cover/'. $book->cover))){
             unlink(public_path('cover/'. $book->cover));
         }
 
@@ -110,7 +111,7 @@ class BookController extends Controller
     {
         $book = Book::where('slug', $slug)->first();
 
-        if (file_exists(public_path('cover/'. $book->cover))){
+        if ($book->cover != '' && file_exists(public_path('cover/'. $book->cover))){
             unlink(public_path('cover/'. $book->cover));
         }
 

@@ -69,6 +69,18 @@ class AuthController extends Controller
         return redirect('/login');
     }
 
+    function validatePhoneNumber($phoneNumber) {
+        // Remove any non-numeric characters from the phone number
+        $phoneNumber = preg_replace('/[^0-9]/', '', $phoneNumber);
+
+        // Check if the phone number is 10 digits long
+        if (strlen($phoneNumber) === 10) {
+            return true; // Valid phone number
+        } else {
+            return false; // Invalid phone number
+        }
+    }
+
     public function registerProcess(Request $request)
     {
         $validated = $request->validate([
@@ -78,6 +90,14 @@ class AuthController extends Controller
             'address' => 'required',
             'role_id' => 'required'
         ]);
+
+
+        if (isset($request->phone)) {
+            if (!$this->validatePhoneNumber($request->phone)){
+                Session::flash('message', 'Phone number is not valid!');
+                return redirect()->back()->with('status', 'Phone number is not valid!');
+            }
+        }
 
         if ($request->role_id == 3 || $request->role_id == '3'){
             $request->merge(['status' => 'active']);

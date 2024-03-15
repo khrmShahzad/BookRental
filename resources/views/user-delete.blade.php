@@ -13,7 +13,7 @@
 
         <div class="card-body mb-5">
             <button class="btn btn-danger me-5" type="submit">Sure Delete</button>
-            <a href="/users" class="btn btn-light">Cancel</a>
+            <a href="/usersss" class="btn btn-light">Cancel</a>
         </div>
     </form>
 
