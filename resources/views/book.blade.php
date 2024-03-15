@@ -52,7 +52,7 @@
                 @foreach ($books as $item)
                     <tr>
                         <td>{{ $loop->iteration + $books->firstItem() - 1 }}</td>
-                        <td><img src="{{ $item->cover != null ? asset('cover/' . $item->cover) : asset('images/cover-default.png') }}"
+                        <td><img src="{{ $item->cover != null ? asset('cover/' . $item->cover) : asset('cover/cover-default.png') }}"
                                  class="card-img-top img-fluid" alt="Book Cover" draggable="false" height="250px"></td>
                         <td>{{ $item->book_code }}</td>
                         <td>{{ $item->title }}</td>

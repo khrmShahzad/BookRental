@@ -760,7 +760,7 @@
 
                 <div class="section-header">
                     <h2>Recently Added Books</h2>
-                    <p>Consequatur libero assumenda est voluptatem est quidem illum et officia imilique qui vel architecto accusamus fugit aut qui distinctio</p>
+                    <p>Recently added books to borrow</p>
                 </div>
 
                 <div class="row gy-4">

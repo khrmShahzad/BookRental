@@ -8,12 +8,12 @@
                     <span>Rental Books</span>
                 </a>
                 <p>Discover the joy of reading with our online book rental platform. Whether you're seeking captivating stories or looking to share your favorites, we offer a convenient lending service for both readers and lenders. Dive into a world of literature and join our community of book lovers today!</p>
-                <div class="social-links d-flex mt-4">
+                {{--<div class="social-links d-flex mt-4">
                     <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
                     <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
                     <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
                     <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-                </div>
+                </div>--}}
             </div>
 
             <div class="col-lg-2 col-6 footer-links">
@@ -38,7 +38,7 @@
             <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
                 <h4>Contact Us</h4>
                 <p>
-                    hafar al-batin, <br>
+                    Hafar Al-Batin, <br>
                     University of hafar al-batin,<br>
                     SWE department. <br><br>
                     <strong>Open Hours::</strong> Sunday-Thursday: 11AM - 23PM<br>

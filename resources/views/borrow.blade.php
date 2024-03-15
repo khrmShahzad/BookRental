@@ -66,29 +66,29 @@
 
                     <div class="mb-3">
                         <label class='form-label'>Name on Card</label>
-                        <input class='form-control' size='4' type='text' value="Khurram Shahzad" required>
+                        <input class='form-control' size='4' type='text' value="" required>
 
                     </div>
 
                     <div class="mb-3">
                         <label class='form-label'>Card Number</label>
-                        <input autocomplete='off' class='form-control card-number' value="4242424242424242" size='20' type='text' required>
+                        <input autocomplete='off' class='form-control card-number' value="" size='20' type='text' required>
                     </div>
 
                     <div class="mb-3">
                         <label class='form-label'>CVC</label>
-                        <input autocomplete='off' class='form-control card-cvc' value="123" placeholder='ex. 311' size='4' type='text' required>
+                        <input autocomplete='off' class='form-control card-cvc' value="" placeholder='ex. 311' size='4' type='text' required>
 
                     </div>
 
                     <div class="mb-3">
                         <label class='form-label'>Expiration Month</label>
-                        <input class='form-control card-expiry-month' placeholder='MM' value="12" size='2' type='text' required>
+                        <input class='form-control card-expiry-month' placeholder='MM' value="" size='2' type='text' required>
                     </div>
 
                     <div class="mb-3">
                         <label class='form-label'>Expiration Year</label>
-                        <input class='form-control card-expiry-year' placeholder='YYYY' value="2025" size='4' type='text' required>
+                        <input class='form-control card-expiry-year' placeholder='YYYY' value="" size='4' type='text' required>
                     </div>
 
                 </div>
@@ -103,7 +103,7 @@
 
             <div class="row">
                 <div class="col-xs-12">
-                    <button class="btn btn-secondary btn-lg btn-block" type="submit" style="background-color: #178066;">Click To Pay Pkr - {{ $book->charges }}</button>
+                    <button class="btn btn-secondary btn-lg btn-block" type="submit" style="background-color: #178066;">Click To Pay $ - {{ $book->charges }}</button>
                 </div>
             </div>
 

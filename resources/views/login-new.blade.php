@@ -11,7 +11,7 @@
 
                 <div class="section-header">
                     <h2>Login</h2>
-                    <p>Nulla dolorum nulla nesciunt rerum facere sed ut inventore quam porro nihil id ratione ea sunt quis dolorem dolore earum</p>
+{{--                    <p>Nulla dolorum nulla nesciunt rerum facere sed ut inventore quam porro nihil id ratione ea sunt quis dolorem dolore earum</p>--}}
                 </div>
 
                 <div class="row gx-lg-0 gy-4">
@@ -23,7 +23,7 @@
                                 <i class="bi bi-geo-alt flex-shrink-0"></i>
                                 <div>
                                     <h4>Location:</h4>
-                                    <p>hafar al-batin, University of hafar al-batin, SWE department.</p>
+                                    <p>Hafar Al-Batin, University of hafar al-batin, SWE department.</p>
                                 </div>
                             </div><!-- End Info Item -->
 
