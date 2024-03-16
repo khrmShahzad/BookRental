@@ -130,24 +130,28 @@ class BookRentController extends Controller
     {
         $star = $request->star;
         $id = $request->id;
-        $isExists = Rating::where('user_id', Auth::user()->id)->where('book_id', $id)->first();
+        $isExists = RentLogs::find($id);
 
         if ($isExists) {
             $isExists->rating = $star;
             $isExists->save();
-        } else {
+        }
+        /*else {
             $data = Rating::create([
                 'user_id' => Auth::user()->id,
                 'book_id' => $id,
                 'rating' => $star
             ]);
-        }
+        }*/
 
-        $book = Book::find($id);
-        $averageRating = Rating::where('book_id', $id)->avg('rating');
+        $book = Book::find($isExists->book_id);
+        $averageRating = RentLogs::where('id', $id)->avg('rating');
 
         $book->overall_rating = $averageRating;
         $book->save();
+
+        Session::flash('message', "Book has been rated");
+        Session::flash('alert-class', "alert-success");
 
         $responseData = [
             'message' => 'Rating has been updated',

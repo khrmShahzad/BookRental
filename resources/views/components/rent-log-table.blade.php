@@ -1,4 +1,9 @@
 <div>
+
+    <div class="alert alert-success" id="success-msg" style="display: none;">
+        Rating has been updated
+    </div>
+
     <table class="table table-bordered text-center">
         <thead>
             <tr>
@@ -27,24 +32,24 @@
                         @if (Auth::User()->role_id === 3)
 
                             @for($i=1;$i<6;$i++)
-                                @if($item->overall_rating == 0)
-                                    <i class="bi bi-star" title="Click to rate this books" style="cursor:pointer" onclick="rateBook({{$i+1}}, {{$item->book_id}})"></i>
-                                @elseif($i <= $item->overall_rating)
-                                    <i class="bi bi-star" title="Click to rate this books" style="cursor:pointer; color: greenyellow" onclick="rateBook({{$i+1}}, {{$item->book_id}})"></i>
+                                @if($item->rating == 0)
+                                    <i class="bi bi-star" title="Click to rate this books" style="cursor:pointer" onclick="rateBook({{$i}}, {{$item->id}})"></i>
+                                @elseif($i <= $item->rating)
+                                    <i class="bi bi-star" title="Click to rate this books" style="cursor:pointer; color: greenyellow" onclick="rateBook({{$i}}, {{$item->id}})"></i>
                                 @else
-                                    <i class="bi bi-star" title="Click to rate this books" style="cursor:pointer" onclick="rateBook({{$i+1}}, {{$item->book_id}})"></i>
+                                    <i class="bi bi-star" title="Click to rate this books" style="cursor:pointer" onclick="rateBook({{$i}}, {{$item->id}})"></i>
                                 @endif
                             @endfor
 
                         @else
 
                             @for($i=1;$i<6;$i++)
-                                @if($item->overall_rating == 0)
+                                @if($item->rating == 0)
                                     <i class="bi bi-star" title="Rating of this books" style="cursor:pointer"></i>
-                                @elseif($i <= $item->overall_rating)
+                                @elseif($i <= $item->rating)
                                     <i class="bi bi-star" title="Rating of this books" style="cursor:pointer; color: greenyellow"></i>
                                 @else
-                                    <i class="bi bi-star" title="Rating of this books" style="cursor:pointer></i>
+                                    <i class="bi bi-star" title="Rating of this books" style="cursor:pointer;"></i>
                                 @endif
                             @endfor
 
@@ -86,10 +91,11 @@
             },
             success: function (response) {
                 if (response.status == "success") {
+                    $("#success-msg").show();
                     setTimeout(function () {
                         location.reload();
-                        //window.location.href = "{ { route("admin-player-list")}}";
-                    }, 1000);
+                        window.location.href = "/rent-logs";
+                    }, 2000);
 
                     console.log(response);
 
