@@ -23,7 +23,7 @@
                     class="{{ $item->actual_return_date == null ? '' : ($item->return_date < $item->actual_return_date ? 'table-danger' : 'table-success') }}">
                     <td>{{ $loop->index + 1 }}</td>
                     <td>{{ $item->user->username }}</td>
-                    <td>{{ $item->book_code }} - {{ $item->book->title }}</td>
+                    <td>{{ $item->book_code }} - {{ $item->title }}</td>
                     <td>{{ $item->rent_date }}</td>
                     <td>{{ $item->return_date }}</td>
                     <td>{{ $item->actual_return_date }}</td>
