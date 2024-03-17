@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use App\Models\RentLogs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -28,6 +29,13 @@ class RentLogController extends Controller
                 $query->where('username', 'LIKE', '%' . $keyword . '%');
             })
             ->paginate(10);
+
+        foreach ($rentlogs as $rent){
+            $book = Book::where('id', $rent['book_id'])->first();
+            $rent['book_code'] = $book['book_code'];
+            $rent['title'] = $book['title'];
+        }
+
         return view('rent_log', ['rent_logs' => $rentlogs]);
     }
 }
