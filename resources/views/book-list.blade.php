@@ -86,8 +86,9 @@
                                     <a href="{{ $item->cover != null ? asset('cover/' . $item->cover) : asset('cover/cover-default1.png') }}" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{{ $item->cover != null ? asset('cover/' . $item->cover) : asset('cover/cover-default1.png') }}" class="img-fluid" alt=""></a>
                                     <div class="portfolio-info">
                                         <h4><a href="book-detail/{{ $item->id }}" title="More Details">Book Title - {{ $item->title }}</a></h4>
-                                        <p>Book Charges - {{ $item->charges }}</p>
-                                        <p>Status - {{ $item->status }}</p>
+                                        <p>Book Price - {{ $item->charges }}</p>
+{{--                                        <p>Status - {{ $item->status }}</p>--}}
+                                        <p>Available Copies - {{ $item->available_copies }}</p>
                                         <p style="display: inline">Ratings</p>
                                         @for($i=1;$i<6;$i++)
                                             @if($item->overall_rating == 0)
@@ -98,7 +99,7 @@
                                                 <i class="bi bi-star" title="Login to rate your books" style="cursor:pointer"></i>
                                             @endif
                                         @endfor
-                                        @if (Auth::User() && Auth::User()->role_id === 3 && $item->status == 'in stock')
+                                        @if (Auth::User() && Auth::User()->role_id === 3 && $item->available_copies > 0)
                                             <div class="col-12 col-md-auto">
                                                 <a href="borrow-req/{{ $item->id }}" class="btn btn-primary me-4">Borrow Request</a>
                                             </div>
@@ -782,10 +783,9 @@
                             <div class="d-flex align-items-center">
                                 <img src="{{ $recent->cover != null ? asset('cover/' . $recent->cover) : asset('cover/cover-default.png') }}" alt="" class="img-fluid post-author-img flex-shrink-0">
                                 <div class="post-meta">
-                                    <p class="post-author">Charges - {{ $recent->charges }}</p>
-                                    <p class="post-date">
-                                        <time datetime="2022-01-01">Status - {{ $recent->status }}</time>
-                                    </p>
+                                    <p class="post-author">Price - {{ $recent->charges }}</p>
+{{--                                    <p class="post-date">Status - {{ $recent->status }}</p>--}}
+                                    <p class="post-date">Available Copies - {{ $recent->available_copies }}</p>
                                 </div>
                             </div>
 
@@ -1164,7 +1164,7 @@
                         <div class="card-body">
                             <h5 class="card-title text-center">Book Code - {{ $item->book_code }}</h5>
                             <p class="card-text">Book Title - {{ $item->title }}</p>
-                            <p class="card-text">Book Charges - {{ $item->charges }}</p>
+                            <p class="card-text">Book Price - {{ $item->charges }}</p>
                             @if (Auth::User() && Auth::User()->role_id === 3)
                                 <div class="col-12 col-md-auto">
                                     <a href="book-add" class="btn btn-primary me-4">Borrow Request</a>

@@ -48,7 +48,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="title" class="form-label fw-bold">Charges</label>
+                    <label for="title" class="form-label fw-bold">Price</label>
                     <input type="number" class="form-control" name="charges" id="charges" placeholder="Book Charges"
                            value="{{ $book->charges }}">
                 </div>

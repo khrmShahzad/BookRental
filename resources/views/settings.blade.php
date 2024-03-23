@@ -23,6 +23,23 @@
                     <label for="" class="form-label">Phone</label>
                     <input type="text" class="form-control" name="phone" value="{{ $profile->phone }}">
                 </div>
+
+                <div class="mb-3">
+                    <label for="" class="form-label">Country</label>
+                    <input type="text" class="form-control" name="country" value="{{ $profile->country }}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="" class="form-label">City</label>
+                    <input type="text" class="form-control" name="city" value="{{ $profile->city }}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="" class="form-label">Zip Code</label>
+                    <input type="text" class="form-control" name="zip_code" value="{{ $profile->zip_code }}">
+                </div>
+
+
                 <div class="mb-3">
                     <label for="" class="form-label">Address</label>
                     <textarea class="form-control" id="" rows="5" name="address" style="resize: none">{{ $profile->address }}</textarea>

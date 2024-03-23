@@ -60,9 +60,11 @@
                             <div class="form-group mt-3">
                                 <input type="text" name="username" class="form-control" id="username" placeholder="Enter username" required>
                             </div>
+
                             <div class="form-group mt-3">
                                 <input type="password" name="password" class="form-control" id="password" placeholder="Enter password" required>
                             </div>
+
                             <div class="form-group mt-3">
                                 <input type="text" name="phone" class="form-control" id="phone" placeholder="1234567890" required>
                             </div>
@@ -70,12 +72,25 @@
                             <div class="form-group mt-3">
                                 <input type="file" class="form-control" name="image" id="image">
                             </div>
+
                             <div class="form-group mt-3">
                                 <label style="margin-right: 1vw;">Sign up as a</label>
                                 <input type="radio" id="lender" name="role_id" value="2">
                                 <label for="lender" style="margin-right: 1vw;">Lender</label>
                                 <input type="radio" id="borrower" name="role_id" value="3">
                                 <label for="borrower">Borrower</label>
+                            </div>
+
+                            <div class="form-group mt-3">
+                                <input type="text" name="country" class="form-control" id="country" placeholder="Country" required>
+                            </div>
+
+                            <div class="form-group mt-3">
+                                <input type="text" name="city" class="form-control" id="city" placeholder="City" required>
+                            </div>
+
+                            <div class="form-group mt-3">
+                                <input type="text" name="zip_code" class="form-control" id="zip_code" placeholder="Zip Code" required>
                             </div>
 
                             <div class="form-group mt-3">
@@ -87,9 +102,13 @@
                                 <div class="error-message"></div>
                                 <div class="sent-message">Your message has been sent. Thank you!</div>
                             </div>
+
                             <div class="text-center"><button type="submit">Register</button></div>
+
                             <p class="text-center"> Don't have an account? <a href="/login" class="text-decoration-none mb-3">Login</a></p>
+
                         </form>
+
                     </div><!-- End Contact Form -->
 
                     {{--<div class="form-group mb-3">

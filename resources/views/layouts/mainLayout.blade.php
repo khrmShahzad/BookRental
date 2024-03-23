@@ -90,11 +90,11 @@
                                         class="nav-link @if (request()->route()->uri == 'rent-logs') active @endif"><i
                                             class="bi bi-journal-bookmark-fill"></i> Rent Log</a>
                                 </li>
-                                <li class="nav-item mb-3">
+                                {{--<li class="nav-item mb-3">
                                     <a href="/book-rent"
                                         class="nav-link @if (request()->route()->uri == 'book-rent') active @endif"><i
                                             class="bi bi-journal-check"></i> Book Rent</a>
-                                </li>
+                                </li>--}}
                                 <li class="nav-item mb-3">
                                     <a href="/book-return"
                                         class="nav-link @if (request()->route()->uri == 'book-return') active @endif"><i
@@ -147,11 +147,11 @@
                                        class="nav-link @if (request()->route()->uri == 'rent-logs') active @endif"><i
                                             class="bi bi-journal-bookmark-fill"></i> Rent Log</a>
                                 </li>
-                                <li class="nav-item mb-3">
+                                {{--<li class="nav-item mb-3">
                                     <a href="/book-rent"
                                        class="nav-link @if (request()->route()->uri == 'book-rent') active @endif"><i
                                             class="bi bi-journal-check"></i> Book Rent</a>
-                                </li>
+                                </li>--}}
                                 <li class="nav-item mb-3">
                                     <a href="/book-return"
                                        class="nav-link @if (request()->route()->uri == 'book-return') active @endif"><i

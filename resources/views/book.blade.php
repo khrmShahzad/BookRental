@@ -44,7 +44,9 @@
                     <th class="col-sm-2">Title</th>
                     <th class="col-sm-2">Category</th>
                     <th class="col-sm-2">Status</th>
-                    <th class="col-sm-1">Charges</th>
+                    <th class="col-sm-1">Price</th>
+                    <th class="col-sm-1">Total Copies</th>
+                    <th class="col-sm-1">Available Copies</th>
                     <th class="col-sm-2">Action</th>
                 </tr>
             </thead>
@@ -63,6 +65,8 @@
                         </td>
                         <td>{{ $item->status }}</td>
                         <td>{{ $item->charges }}</td>
+                        <td>{{ $item->total_copies }}</td>
+                        <td>{{ $item->available_copies }}</td>
                         <td>
                             <a href="book-edit/{{ $item->slug }}" class="btn btn-warning me-2">Edit</a>
                             <a href="book-delete/{{ $item->slug }}" class="btn btn-danger">Delete</a>

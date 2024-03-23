@@ -55,6 +55,7 @@ class BorrowController extends Controller
                 // process update book table
                 $book = Book::findOrFail($request->book_id);
                 $book->status = 'not available';
+                $book->available_copies = $book->available_copies - $request->copies;
                 $book->save();
 
                 Stripe\Stripe::setApiKey('sk_test_51OuCTPDVHG7hkxkWNKqQstjHSt07DTdHAq87kTdWZEj1OYOdvEr0mlHLfz1o1JyBJQOhwgct5oNr7OUinMBCb7VQ00UEJsmQeV');
@@ -67,7 +68,7 @@ class BorrowController extends Controller
                 ]);
 
                 if ($session){
-                    Session::flash('status', "Book has been borrowed successfully");
+                    Session::flash('status', "Payment completed successfully, you will receive your book soon...");
                 }else{
                     Session::flash('status', "Can't rent, something went wrong");
                 }
@@ -77,10 +78,6 @@ class BorrowController extends Controller
             }
         }
 
-
-
-
     }
-
 
 }

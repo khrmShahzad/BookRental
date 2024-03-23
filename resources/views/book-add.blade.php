@@ -25,8 +25,8 @@
                 @csrf
                 <div class="mb-3">
                     <label for="code" class="form-label fw-bold">Code</label>
-                    <input type="text" class="form-control" name="book_code" id="code" placeholder="Book Code"
-                        value="{{ old('book_code') }}">
+                    <input type="text" class="form-control" name="book_code" id="code" placeholder="Book Code- Auto Generate"
+                        value="{{ old('book_code') }}" readonly>
                 </div>
                 <div class="mb-3">
                     <label for="title" class="form-label fw-bold">Title</label>
@@ -39,9 +39,21 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="title" class="form-label fw-bold">Charges</label>
+                    <label for="charges" class="form-label fw-bold">Price</label>
                     <input type="number" class="form-control" name="charges" id="charges" placeholder="Book Charges"
                            value="{{ old('charges') }}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="total_copies" class="form-label fw-bold">Total Copies</label>
+                    <input type="number" class="form-control" name="total_copies" id="total_copies" placeholder="Total Copies"
+                           value="{{ old('total_copies') }}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="available_copies" class="form-label fw-bold">Available Copies</label>
+                    <input type="number" class="form-control" name="available_copies" id="available_copies" placeholder="Available Copies"
+                           value="{{ old('available_copies') }}">
                 </div>
 
                 <div class="mb-3">

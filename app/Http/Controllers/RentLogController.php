@@ -14,7 +14,7 @@ class RentLogController extends Controller
         $keyword = $request->keyword;
 
         $where = '';
-        if (Auth::user()->id == 2 || Auth::user()->id == 3){
+        if (Auth::user()->role_id == 2 || Auth::user()->role_id == 3){
             $where = 'user_id = '.Auth::user()->id;
         }
 

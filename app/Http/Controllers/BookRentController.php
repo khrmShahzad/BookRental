@@ -166,13 +166,16 @@ class BookRentController extends Controller
     {
         $id = $request->id;
         $book_id = $request->book_id;
+        $copies = 1;
 
         $rentData = RentLogs::find($id);
         $rentData->actual_return_date = Carbon::now()->toDateString();
+        $copies = $rentData->copies;
         $rentData->save();
 
         $book = Book::findOrFail($book_id);
         $book->status = 'in stock';
+        $book->available_copies = $book->available_copies + $copies;
         $book->save();
 
         $responseData = [

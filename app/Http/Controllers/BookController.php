@@ -44,9 +44,11 @@ class BookController extends Controller
     {
         // validation
         $validated = $request->validate([
-            'book_code' => 'required|unique:books|max:255',
+            //'book_code' => 'required|unique:books|max:255',
             'title' => 'required|max:255',
-            'charges' => 'required'
+            'charges' => 'required',
+            'total_copies' => 'required',
+            'available_copies' => 'required'
         ]);
 
         $newName = '';
@@ -59,6 +61,15 @@ class BookController extends Controller
 
         $request['cover'] = $newName;
         $request->user_id = Auth::user()->id;
+
+        // Get the latest book code from the database
+        $latestBook = Book::orderBy('id', 'desc')->first();
+        $lastBookCode = $latestBook ? substr($latestBook->book_code, 3) : 0;
+        // Increment the last book code and format it with leading zeros
+        $nextBookCode = 'bk-' . str_pad($lastBookCode + 1, 4, '0', STR_PAD_LEFT);
+
+        $request->merge(['book_code' => $nextBookCode]);
+
         $book = Book::create($request->all());
         $book->categories()->sync($request->categories);
         return redirect('books')->with('status', 'Book Added Successfully!');

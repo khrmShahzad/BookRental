@@ -45,8 +45,13 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="" class="form-label">Charges</label>
-                        <input type="text" class="form-control" name="charges" readonly value="{{ $book->charges }}">
+                        <label for="" class="form-label">Price</label>
+                        <input type="text" class="form-control" id="charges" name="charges" readonly value="{{ $book->charges }}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="" class="form-label">No of Copies</label>
+                        <input type="number" class="form-control" id="copies" name="copies" value="1" min="1" max="{{ $book->available_copies }}">
                     </div>
 
                     {{--<div class="mb-3">
@@ -103,7 +108,7 @@
 
             <div class="row">
                 <div class="col-xs-12">
-                    <button class="btn btn-secondary btn-lg btn-block" type="submit" style="background-color: #178066;">Click To Pay $ - {{ $book->charges }}</button>
+                    <button class="btn btn-secondary btn-lg btn-block" type="submit" style="background-color: #178066;">Click To Pay $ - <span id="charges-area">{{ $book->charges }}</span></button>
                 </div>
             </div>
 
@@ -167,7 +172,18 @@
                 }
             }
 
+
+            $("#copies").change(function() {
+                // Get the value of the input field
+                var inputValue = $(this).val();
+                var price = $("#charges").val()
+
+                $("#charges-area").text(price*inputValue)
+            });
+
         });
+
+
     </script>
 
 @endsection

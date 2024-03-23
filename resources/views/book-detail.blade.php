@@ -53,7 +53,8 @@
                 <div class="col-lg-12">
                     <div class="portfolio-description">
                         <h2>Title - {{$book->title}}</h2>
-                        <p>Charges - {{$book->charges}}</p>
+                        <p>Price - {{$book->charges}}</p>
+                        <p>Available Copies - {{ $book->available_copies }}</p>
 
                         <p>Ratings</p>
                         @for($i=1;$i<6;$i++)
