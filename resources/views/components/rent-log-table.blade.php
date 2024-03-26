@@ -101,7 +101,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Add Comments</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal(1)">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -114,7 +114,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" onclick="returnBookSubmit()">Submit</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeModal(1)">Close</button>
             </div>
         </div>
     </div>
@@ -125,7 +125,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Add Security Amount</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal(2)">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -176,7 +176,7 @@
 
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Submit</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeModal(2)">Close</button>
                 </div>
 
             </form>
@@ -393,6 +393,15 @@
                 }
             }
         });
+    }
+
+    function closeModal(flag){
+        if(flag == 1){
+
+            $("#comment-Modal").hide();
+        }else{
+            $("#security-Modal").hide();
+        }
     }
 
 </script>
