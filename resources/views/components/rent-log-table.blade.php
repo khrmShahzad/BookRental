@@ -79,7 +79,7 @@
 
                         @else
 
-                            @if((Auth::user()->role_id == 2 || Auth::user()->role_id == 3) && ($item->security_submitted != 0 || $item->security_submitted != '') && ($item->security_returned == 0 || $item->security_returned == ''))
+                            @if((Auth::user()->role_id == 1 || Auth::user()->role_id == 2) && ($item->security_submitted != 0 || $item->security_submitted != '') && ($item->security_returned == 0 || $item->security_returned == ''))
 
                                 <button type="button" class="btn btn-primary" onclick="refundSecurity({{$item->id}}, {{$item->book_id}}, {{$item->security_submitted}})">Refund Security</button>
                             @else
