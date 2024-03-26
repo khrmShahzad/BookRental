@@ -35,6 +35,11 @@
                     </div>
 
                     <div class="mb-3">
+                        <label for="" class="form-label">Book Title</label>
+                        <input type="text" class="form-control" name="book_title" readonly value="{{ $book->title }}">
+                    </div>
+
+                    <div class="mb-3">
                         <label for="" class="form-label">Book Code</label>
                         <input type="text" class="form-control" name="book_code" readonly value="{{ $book->book_code }}">
                     </div>
@@ -47,6 +52,11 @@
                     <div class="mb-3">
                         <label for="" class="form-label">Price</label>
                         <input type="text" class="form-control" id="charges" name="charges" readonly value="{{ $book->charges }}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="" class="form-label">Security</label>
+                        <input type="text" class="form-control" id="security" name="security" readonly value="{{ $book->security }}">
                     </div>
 
                     <div class="mb-3">
@@ -108,7 +118,7 @@
 
             <div class="row">
                 <div class="col-xs-12">
-                    <button class="btn btn-secondary btn-lg btn-block" type="submit" style="background-color: #178066;">Click To Pay $ - <span id="charges-area">{{ $book->charges }}</span></button>
+                    <button class="btn btn-secondary btn-lg btn-block" type="submit" style="background-color: #178066;">Click To Pay $ - <span id="charges-area">{{ $book->charges + $book->security }}</span></button>
                 </div>
             </div>
 
@@ -177,8 +187,9 @@
                 // Get the value of the input field
                 var inputValue = $(this).val();
                 var price = $("#charges").val()
-
-                $("#charges-area").text(price*inputValue)
+                var security = $("#security").val();
+                var sum = parseInt(security) + parseInt((price * inputValue))
+                $("#charges-area").text(sum)
             });
 
         });

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use App\Models\Category;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -164,7 +165,9 @@ class BookController extends Controller
     public function details($id)
     {
         $book = Book::find($id);
-        //dd($book);
+        if ($book){
+            $book['comments'] = Comment::where('book_id', $book['id'])->get();
+        }
         $categories = Category::all();
         return view('book-detail', ['book' => $book, 'categories' => $categories]);
     }

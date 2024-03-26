@@ -54,6 +54,7 @@
                     <div class="portfolio-description">
                         <h2>Title - {{$book->title}}</h2>
                         <p>Price - {{$book->charges}}</p>
+                        <p>Security - {{$book->security}}</p>
                         <p>Available Copies - {{ $book->available_copies }}</p>
 
                         <p>Ratings</p>
@@ -75,6 +76,15 @@
                             <div class="col-12 col-md-auto">
                                 <a href="/login" class="btn btn-primary me-4">Login to Borrow</a>
                             </div>
+                        @endif
+
+                        @if(!empty($book['comments']))
+                            <br>
+                            Comments...
+                            <br>
+                            @foreach($book['comments'] as $comment)
+                                {{$comment['comments']}}
+                            @endforeach
                         @endif
 
                     </div>

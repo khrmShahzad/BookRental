@@ -25,7 +25,7 @@ class BorrowController extends Controller
     public function checkout(Request $request)
     {
 
-
+        $security = 0;
         $request['rent_date'] = Carbon::now()->toDateString();
         $request['return_date'] = Carbon::now()->addDay(7)->toDateString();
         $request['user_id'] = Auth::user()->id;
@@ -49,14 +49,20 @@ class BorrowController extends Controller
 
             } else {
 
-                // process insert to rent_logs table
-                RentLogs::create($request->all());
+
 
                 // process update book table
                 $book = Book::findOrFail($request->book_id);
+                $security = $book->security;
                 $book->status = 'not available';
                 $book->available_copies = $book->available_copies - $request->copies;
                 $book->save();
+
+                $request->merge(['security_submitted' => $security]);
+                $request->merge(['security_returned' => 0]);
+                // process insert to rent_logs table
+                RentLogs::create($request->all());
+
 
                 Stripe\Stripe::setApiKey('sk_test_51OuCTPDVHG7hkxkWNKqQstjHSt07DTdHAq87kTdWZEj1OYOdvEr0mlHLfz1o1JyBJQOhwgct5oNr7OUinMBCb7VQ00UEJsmQeV');
 

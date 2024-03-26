@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Comment;
 use App\Models\User;
 use App\Models\Category;
 use App\Models\RentLogs;
@@ -25,6 +26,20 @@ class DashboardController extends Controller
             $rentlogs = RentLogs::with('user', 'book')->paginate(10);
         }
 
+        if ($rentlogs){
+            foreach ($rentlogs as $rent){
+                $book = Book::where('id', $rent['book_id'])->first();
+                $rent['book_code'] = $book['book_code'];
+                $rent['title'] = $book['title'];
+
+                $comment = Comment::where('rent_log_id', $rent['id'])->first();
+                if($comment){
+                    $rent['comment'] = $comment['comments'];
+                }else{
+                    $rent['comment'] = '';
+                }
+            }
+        }
 
         return view('dashboard', ['book_count' => $bookCount, 'category_count' => $categoryCount, 'user_count' => $userCount, 'rent_logs' => $rentlogs]);
     }

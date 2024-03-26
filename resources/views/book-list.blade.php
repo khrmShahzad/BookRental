@@ -87,8 +87,8 @@
                                     <div class="portfolio-info">
                                         <h4><a href="book-detail/{{ $item->id }}" title="More Details">Book Title - {{ $item->title }}</a></h4>
                                         <p>Book Price - {{ $item->charges }}</p>
-{{--                                        <p>Status - {{ $item->status }}</p>--}}
-                                        <p>Available Copies - {{ $item->available_copies }}</p>
+                                        <p>Status - {{ $item->status }}</p>
+                                        <p>Security - {{ $item->security }}</p>
                                         <p style="display: inline">Ratings</p>
                                         @for($i=1;$i<6;$i++)
                                             @if($item->overall_rating == 0)
@@ -784,6 +784,7 @@
                                 <img src="{{ $recent->cover != null ? asset('cover/' . $recent->cover) : asset('cover/cover-default.png') }}" alt="" class="img-fluid post-author-img flex-shrink-0">
                                 <div class="post-meta">
                                     <p class="post-author">Price - {{ $recent->charges }}</p>
+                                    <p class="post-author">Security - {{ $recent->security }}</p>
 {{--                                    <p class="post-date">Status - {{ $recent->status }}</p>--}}
                                     <p class="post-date">Available Copies - {{ $recent->available_copies }}</p>
                                 </div>

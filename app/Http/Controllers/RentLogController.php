@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Comment;
 use App\Models\RentLogs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -30,10 +31,21 @@ class RentLogController extends Controller
             })
             ->paginate(10);
 
-        foreach ($rentlogs as $rent){
-            $book = Book::where('id', $rent['book_id'])->first();
-            $rent['book_code'] = $book['book_code'];
-            $rent['title'] = $book['title'];
+        if ($rentlogs){
+            foreach ($rentlogs as $rent){
+                $book = Book::where('id', $rent['book_id'])->first();
+                $rent['book_code'] = $book['book_code'];
+                $rent['title'] = $book['title'];
+
+                $comment = Comment::where('rent_log_id', $rent['id'])->first();
+                if($comment){
+                    $rent['comment'] = $comment['comments'];
+                }else{
+                    $rent['comment'] = '';
+                }
+
+
+            }
         }
 
         return view('rent_log', ['rent_logs' => $rentlogs]);

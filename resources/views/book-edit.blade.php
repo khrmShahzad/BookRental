@@ -54,6 +54,12 @@
                 </div>
 
                 <div class="mb-3">
+                    <label for="title" class="form-label fw-bold">Security</label>
+                    <input type="number" class="form-control" name="security" id="security" placeholder="Book Security"
+                           value="{{ $book->security }}">
+                </div>
+
+                <div class="mb-3">
                     <label for="category" class="form-label fw-bold">Category</label>
                     <p>
                         @foreach ($book->categories as $category)

@@ -45,6 +45,12 @@
                 </div>
 
                 <div class="mb-3">
+                    <label for="charges" class="form-label fw-bold">Security</label>
+                    <input type="number" class="form-control" name="security" id="security" placeholder="Book Security"
+                           value="{{ old('security') }}">
+                </div>
+
+                <div class="mb-3">
                     <label for="total_copies" class="form-label fw-bold">Total Copies</label>
                     <input type="number" class="form-control" name="total_copies" id="total_copies" placeholder="Total Copies"
                            value="{{ old('total_copies') }}">
