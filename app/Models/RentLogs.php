@@ -15,7 +15,7 @@ class RentLogs extends Model
     protected $table = 'rent_logs';
 
     protected $fillable = [
-        'user_id', 'book_id', 'rent_date', 'return_date', 'rating', 'copies', 'security_submitted', 'security_returned'
+        'user_id', 'book_id', 'rent_date', 'return_date', 'rating', 'copies', 'security_submitted', 'security_returned', 'status'
     ];
 
     public function user(): BelongsTo

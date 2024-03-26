@@ -16,6 +16,7 @@
                 <th class="col-sm-1">Security Submitted</th>
                 <th class="col-sm-1">Security Returned</th>
                 <th class="col-sm-2">Ratings</th>
+                <th class="col-sm-2">Status</th>
                 <th class="col-sm-2">Comments</th>
                 <th class="col-sm-1">Action</th>
             </tr>
@@ -65,6 +66,7 @@
                         @endif
 
                     </td>
+                    <td>{{ $item->status }}</td>
                     <td onclick="returnBook({{$item->id}}, {{$item->book_id}}, 1, '{{ $item->comment }}')" style="cursor: pointer" title="Click to edit comment">
                         @if($item->comment)
                             {{$item->comment}}

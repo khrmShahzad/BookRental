@@ -17,7 +17,7 @@ class BookController extends Controller
         $keyword = $request->keyword;
 
         $where = '';
-        if (Auth::user()->id == 2){
+        if (Auth::user()->role_id == 2){
             $where = 'user_id = '.Auth::user()->id;
         }
 

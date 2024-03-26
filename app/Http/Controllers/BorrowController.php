@@ -60,6 +60,7 @@ class BorrowController extends Controller
 
                 $request->merge(['security_submitted' => $security]);
                 $request->merge(['security_returned' => 0]);
+                $request->merge(['status' => 'pending']);
                 // process insert to rent_logs table
                 RentLogs::create($request->all());
 
@@ -74,7 +75,7 @@ class BorrowController extends Controller
                 ]);
 
                 if ($session){
-                    Session::flash('status', "Payment completed successfully, you will receive your book soon...");
+                    Session::flash('status', "Payment completed successfully, you order is in pending process...");
                 }else{
                     Session::flash('status', "Can't rent, something went wrong");
                 }
