@@ -289,4 +289,27 @@ class BookRentController extends Controller
 
     }
 
+    public function updateStatus(Request $request)
+    {
+        $id = $request->id;
+        $status = $request->status;
+        $isExists = RentLogs::find($id);
+
+        if ($isExists) {
+            $isExists->status = $status;
+            $isExists->save();
+        }
+
+        Session::flash('message', "Status has been updated");
+        Session::flash('alert-class', "alert-success");
+
+        $responseData = [
+            'message' => 'Status has been updated',
+            'status' => 'success'
+        ];
+
+        return response()->json($responseData);
+
+    }
+
 }

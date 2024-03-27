@@ -66,14 +66,74 @@
                         @endif
 
                     </td>
-                    <td>{{ $item->status }}</td>
-                    <td onclick="returnBook({{$item->id}}, {{$item->book_id}}, 1, '{{ $item->comment }}')" style="cursor: pointer" title="Click to edit comment">
-                        @if($item->comment)
-                            {{$item->comment}}
-                        @else
-                            -
-                        @endif
-                    </td>
+
+{{--                    @dd(Auth::User()->role_id)--}}
+                    @if(Auth::User()->role_id === 3 && ($item->status == 'Pending' || $item->status == 'Returned'))
+                        <td title="{{$item->status}}">{{ $item->status }}</td>
+
+                    @elseif(Auth::User()->role_id === 3 && $item->status == 'Arrived')
+                        <td onclick="updateStatus({{$item->id}}, 'Returned')" title="Click to update to Returned" style="cursor: pointer;">{{ $item->status }}</td>
+
+                    {{--@elseif(Auth::User()->role_id === 3 && $item->status == 'Delivered')
+                        <td onclick="updateStatus({{$item->id}}, 'Returned')"  title="Click to update to Returned" style="cursor: pointer;">{{ $item->status }}</td>--}}
+
+                    @elseif(Auth::User()->role_id === 3 && ($item->status == 'Accepted' || $item->status == 'Prepared' || $item->status == 'Courier' || $item->status == 'Shipped'))
+                        <td title="{{$item->status}}">{{ $item->status }}</td>
+
+                    @elseif(Auth::User()->role_id === 3 && $item->status == 'Delivered')
+                        <td onclick="updateStatus({{$item->id}}, 'Arrived')" title="Click to update to Arrived"  style="cursor: pointer;">{{ $item->status }}</td>
+
+                    @elseif(Auth::User()->role_id !== 3 && $item->status == 'Pending')
+                        <td onclick="updateStatus({{$item->id}}, 'Accepted')"  title="Click to update to Accepted" style="cursor: pointer;">{{ $item->status }}</td>
+
+                    @elseif(Auth::User()->role_id !== 3 && $item->status == 'Accepted')
+                        <td onclick="updateStatus({{$item->id}}, 'Prepared')"  title="Click to update to Prepared" style="cursor: pointer;">{{ $item->status }}</td>
+
+                    @elseif(Auth::User()->role_id !== 3 && $item->status == 'Prepared')
+                        <td onclick="updateStatus({{$item->id}}, 'Courier')"  title="Click to update to Courier" style="cursor: pointer;">{{ $item->status }}</td>
+
+                    @elseif(Auth::User()->role_id !== 3 && $item->status == 'Courier')
+                        <td onclick="updateStatus({{$item->id}}, 'Shipped')"  title="Click to update to Shipped" style="cursor: pointer;">{{ $item->status }}</td>
+
+                    @elseif(Auth::User()->role_id !== 3 && $item->status == 'Shipped')
+                        <td onclick="updateStatus({{$item->id}}, 'Delivered')"  title="Click to update to Delivered" style="cursor: pointer;">{{ $item->status }}</td>
+
+                    @elseif(Auth::User()->role_id !== 3 && ($item->status == 'Delivered' || $item->status == 'Returned'))
+                        <td title="{{$item->status}}">{{ $item->status }}</td>
+
+                    @elseif(Auth::User()->role_id !== 3 && $item->status == 'Arrived')
+                        <td title="Delivered">Delivered</td>
+
+                    @endif
+
+
+                    @if(Auth::User()->role_id == 3 && ($item->status == 'Delivered' || $item->status == 'Returned'))
+                        <td onclick="returnBook({{$item->id}}, {{$item->book_id}}, 1, '{{ $item->comment }}')" style="cursor: pointer" title="Click to edit comment">
+                            @if($item->comment)
+                                {{$item->comment}}
+                            @else
+                                -
+                            @endif
+                        </td>
+
+                    @elseif(Auth::User()->role_id == 3)
+                        <td title="You cannot add comment until book is Delivered or Returned">
+                            @if($item->comment)
+                                {{$item->comment}}
+                            @else
+                                -
+                            @endif
+                        </td>
+                    @else
+                        <td>
+                            @if($item->comment)
+                                {{$item->comment}}
+                            @else
+                                -
+                            @endif
+                        </td>
+                    @endif
+
                     <td>
                         @if($item->actual_return_date == '' || $item->actual_return_date == null)
 
@@ -404,6 +464,38 @@
         }else{
             $("#security-Modal").hide();
         }
+    }
+
+    function updateStatus(id, status){
+        var formData = new FormData();
+        formData.append('id', id);
+        formData.append('status', status);
+
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            url: "{{ url("update-status") }}",
+            data: formData,
+            processData: false,
+            contentType: false,
+            headers: {
+                'X-CSRF-TOKEN': csrfToken,
+            },
+            success: function (response) {
+                if (response.status == "success") {
+                    $("#success-msg").show();
+                    /*setTimeout(function () {
+                        location.reload();
+                        window.location.href = "/rent-logs";
+                    }, 2000);*/
+
+                    console.log(response);
+
+                } else {
+                    console.log(response);
+                }
+            }
+        });
     }
 
 </script>
