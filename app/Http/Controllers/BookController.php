@@ -16,7 +16,7 @@ class BookController extends Controller
     {
         $keyword = $request->keyword;
 
-        $where = '';
+        /*$where = '';
         if (Auth::user()->role_id == 2){
             $where = 'user_id = '.Auth::user()->id;
         }
@@ -30,6 +30,19 @@ class BookController extends Controller
             ->orWhere('status', 'LIKE', '%' . $keyword . '%')
             ->orWhereHas('categories', function ($query) use ($keyword) {
                 $query->where('name', 'LIKE', '%' . $keyword . '%');
+            })
+            ->paginate(10);*/
+        $books = Book::with('categories')
+            ->where(function ($query) use ($keyword) {
+                $query->where('book_code', 'LIKE', '%' . $keyword . '%')
+                    ->orWhere('title', 'LIKE', '%' . $keyword . '%')
+                    ->orWhere('status', 'LIKE', '%' . $keyword . '%')
+                    ->orWhereHas('categories', function ($query) use ($keyword) {
+                        $query->where('name', 'LIKE', '%' . $keyword . '%');
+                    });
+            })
+            ->when(Auth::user()->role_id == 2, function ($query) {
+                $query->where('user_id', Auth::user()->id);
             })
             ->paginate(10);
         return view('book', ['books' => $books]);
