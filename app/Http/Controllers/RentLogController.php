@@ -40,7 +40,10 @@ class RentLogController extends Controller
                         $query->where('username', 'LIKE', '%' . $keyword . '%');
                     });
             })
-            ->when(in_array(Auth::user()->role_id, [2, 3]), function ($query) {
+            ->when(Auth::user()->role_id, 2, function ($query) {
+                $query->where('lender_id', Auth::user()->id);
+            })
+            ->when(Auth::user()->role_id, 3, function ($query) {
                 $query->where('user_id', Auth::user()->id);
             })
             ->paginate(10);

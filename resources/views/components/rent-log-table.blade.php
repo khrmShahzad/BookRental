@@ -1,7 +1,7 @@
 <div>
 
     <div class="alert alert-success" id="success-msg" style="display: none;">
-        Rating has been updated
+
     </div>
 
     <table class="table table-bordered text-center">
@@ -336,6 +336,7 @@
             },
             success: function (response) {
                 if (response.status == "success") {
+                    $("#success-msg").text('Rating has been updated');
                     $("#success-msg").show();
                     setTimeout(function () {
                         location.reload();
@@ -483,11 +484,12 @@
             },
             success: function (response) {
                 if (response.status == "success") {
+                    $("#success-msg").text('Status has been updated');
                     $("#success-msg").show();
-                    /*setTimeout(function () {
+                    setTimeout(function () {
                         location.reload();
                         window.location.href = "/rent-logs";
-                    }, 2000);*/
+                    }, 2000);
 
                     console.log(response);
 

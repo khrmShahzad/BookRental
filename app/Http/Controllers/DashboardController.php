@@ -23,7 +23,7 @@ class DashboardController extends Controller
             $bookCount = Book::where('user_id', Auth::user()->id)->count();
             $categoryCount = Category::count();
             $userCount = User::count();
-            $rentlogs = RentLogs::with('user', 'book')->paginate(10);
+            $rentlogs = RentLogs::where('lender_id', Auth::user()->id)->with('user', 'book')->paginate(10);
         }
 
         if ($rentlogs){
