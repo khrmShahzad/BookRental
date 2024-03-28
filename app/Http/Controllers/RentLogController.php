@@ -14,7 +14,7 @@ class RentLogController extends Controller
     {
         $keyword = $request->keyword;
 
-        $where = '';
+        /*$where = '';
         if (Auth::user()->role_id == 2 || Auth::user()->role_id == 3){
             $where = 'user_id = '.Auth::user()->id;
         }
@@ -28,6 +28,20 @@ class RentLogController extends Controller
             })
             ->orWhereHas('user', function ($query) use ($keyword) {
                 $query->where('username', 'LIKE', '%' . $keyword . '%');
+            })
+            ->paginate(10);*/
+
+        $rentlogs = RentLogs::with('user', 'book')
+            ->where(function ($query) use ($keyword) {
+                $query->whereHas('book', function ($query) use ($keyword) {
+                    $query->where('title', 'LIKE', '%' . $keyword . '%');
+                })
+                    ->orWhereHas('user', function ($query) use ($keyword) {
+                        $query->where('username', 'LIKE', '%' . $keyword . '%');
+                    });
+            })
+            ->when(in_array(Auth::user()->role_id, [2, 3]), function ($query) {
+                $query->where('user_id', Auth::user()->id);
             })
             ->paginate(10);
 
