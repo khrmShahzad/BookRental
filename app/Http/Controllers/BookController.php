@@ -62,6 +62,7 @@ class BookController extends Controller
 
         $request['cover'] = $newName;
         $request->user_id = Auth::user()->id;
+        $request->merge(['user_id' => Auth::user()->id]);
 
         // Get the latest book code from the database
         $latestBook = Book::orderBy('id', 'desc')->first();
