@@ -31,7 +31,7 @@ class RentLogController extends Controller
             })
             ->paginate(10);*/
 
-        $rentlogs = RentLogs::with('user', 'book')
+        /*$rentlogs = RentLogs::with('user', 'book')
             ->where(function ($query) use ($keyword) {
                 $query->whereHas('book', function ($query) use ($keyword) {
                     $query->where('title', 'LIKE', '%' . $keyword . '%');
@@ -44,6 +44,23 @@ class RentLogController extends Controller
                 $query->where('lender_id', Auth::user()->id);
             })
             ->when(Auth::user()->role_id, 3, function ($query) {
+                $query->where('user_id', Auth::user()->id);
+            })
+            ->paginate(10);*/
+
+        $rentlogs = RentLogs::with('user', 'book')
+            ->where(function ($query) use ($keyword) {
+                $query->whereHas('book', function ($query) use ($keyword) {
+                    $query->where('title', 'LIKE', '%' . $keyword . '%');
+                })
+                    ->orWhereHas('user', function ($query) use ($keyword) {
+                        $query->where('username', 'LIKE', '%' . $keyword . '%');
+                    });
+            })
+            ->when(Auth::user()->role_id == 2, function ($query) {
+                $query->where('lender_id', Auth::user()->id);
+            })
+            ->when(Auth::user()->role_id == 3, function ($query) {
                 $query->where('user_id', Auth::user()->id);
             })
             ->paginate(10);
