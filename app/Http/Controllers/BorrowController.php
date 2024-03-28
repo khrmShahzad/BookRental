@@ -61,6 +61,7 @@ class BorrowController extends Controller
                 $request->merge(['security_submitted' => $security]);
                 $request->merge(['security_returned' => 0]);
                 $request->merge(['status' => 'pending']);
+                $request->merge(['lender_id' => $book->user_id]);
                 // process insert to rent_logs table
                 RentLogs::create($request->all());
 
