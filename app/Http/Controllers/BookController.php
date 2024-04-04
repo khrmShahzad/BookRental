@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Models\Category;
 use App\Models\Comment;
+use App\Models\RentLogs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -161,17 +162,27 @@ class BookController extends Controller
     public function permanentDelete($slug)
     {
         $deletedBook = Book::withTrashed()->where('slug', $slug)->first();
+        $checkRentLogs = RentLogs::where('book_id',$deletedBook->id)->first();
+        if ($checkRentLogs){
 
-        // Menghapus data terkait di tabel anak
-        $deletedBook->bookCategories()->delete();
-
-        Storage::disk('public')->delete('cover/' . $deletedBook->cover);
-        $deletedBook->forceDelete();
-
-        if ($deletedBook) {
             Session::flash('status', 'success');
-            Session::flash('message', "Delete Permanent Book data $deletedBook->name successfully");
+            Session::flash('message', "You cannot Delete Permanent Book data $deletedBook->name because it has rent logs details");
+
+        }else{
+
+            // Menghapus data terkait di tabel anak
+            $deletedBook->bookCategories()->delete();
+
+            Storage::disk('public')->delete('cover/' . $deletedBook->cover);
+            $deletedBook->forceDelete();
+
+            if ($deletedBook) {
+                Session::flash('status', 'success');
+                Session::flash('message', "Delete Permanent Book data $deletedBook->name successfully");
+            }
         }
+
+
 
         return redirect('/books');
     }
