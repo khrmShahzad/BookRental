@@ -119,7 +119,7 @@ class UserController extends Controller
         $user = User::withTrashed()->where('slug', $slug)->first();
         $user->restore();
 
-        return redirect('users')->with('status', 'User Restored Successfully!');
+        return redirect('usersss')->with('status', 'User Restored Successfully!');
     }
 
     public function permanentDelete($slug)
@@ -132,6 +132,6 @@ class UserController extends Controller
             Session::flash('message', "Ban Permanent User data $deletedUser->name successfully");
         }
 
-        return redirect('/users');
+        return redirect('/usersss');
     }
 }
