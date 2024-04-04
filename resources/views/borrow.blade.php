@@ -56,7 +56,7 @@
 
                     <div class="mb-3">
                         <label for="" class="form-label">Security</label>
-                        <input type="text" class="form-control" id="security" name="security" readonly value="{{ $book->security }}">
+                        <input type="text" class="form-control" id="security" name="security" readonly value="{{ $book->security ? $book->security : 0 }}">
                     </div>
 
                     <div class="mb-3">
