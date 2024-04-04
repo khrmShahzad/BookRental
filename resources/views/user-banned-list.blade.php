@@ -7,7 +7,7 @@
     <h1>List Banned User</h1>
 
     <div class="mt-5 d-flex justify-content-end">
-        <a href="categories" class="btn btn-secondary">Back</a>
+        <a href="usersss" class="btn btn-secondary">Back</a>
     </div>
 
     @if (session('status'))
