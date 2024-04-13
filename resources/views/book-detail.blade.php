@@ -70,7 +70,7 @@
 
                         @if (Auth::User() && Auth::User()->role_id === 3 && $book->status == 'in stock')
                             <div class="col-12 col-md-auto">
-                                <a href="borrow-req/{{ $item->id }}" class="btn btn-primary me-4">Borrow Request</a>
+                                <a href="borrow-req/{{ $book->id }}" class="btn btn-primary me-4">Borrow Request</a>
                             </div>
                         @else
                             <div class="col-12 col-md-auto">
