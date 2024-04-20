@@ -35,6 +35,11 @@
                         value="{{ $book->title }}">
                 </div>
                 <div class="mb-3">
+                    <label for="title" class="form-label fw-bold">Author Name</label>
+                    <input type="text" class="form-control" name="author" id="author" placeholder="Author Name"
+                           value="{{ $book->author }}">
+                </div>
+                <div class="mb-3">
                     <label for="image" class="form-label fw-bold">Cover Image</label>
                     @if ($book->cover != '')
                         <img src="{{ asset('cover/' . $book->cover) }}" alt="Cover Image"

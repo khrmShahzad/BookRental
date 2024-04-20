@@ -13,18 +13,11 @@
                 @endif
                 <th class="col-sm-1">Book</th>
                 <th class="col-sm-1">Title</th>
-               {{-- <th class="col-sm-1">Rent Date</th>
-                <th class="col-sm-1">Return Date</th>
-                <th class="col-sm-1">Actual Return Date</th>
-                <th class="col-sm-1">Security Submitted</th>
-                <th class="col-sm-1">Security Returned</th>--}}
-                <th class="col-sm-2">Copies</th>
-                {{--<th class="col-sm-2">Ratings</th>
-                <th class="col-sm-2">Status</th>
-                <th class="col-sm-2">Comments</th>--}}
-                <th class="col-sm-2">The book has been restored to its original condition</th>
-                <th class="col-sm-2">The book is damaged</th>
-                {{--<th class="col-sm-1">Action</th>--}}
+                <th class="col-sm-1">Copies</th>
+                <th class="col-sm-2">Ratings</th>
+                <th class="col-sm-4">Status</th>
+                {{--<th class="col-sm-2">Comments</th>
+                <th class="col-sm-1">Action</th>--}}
             </tr>
         </thead>
         <tbody>
@@ -41,13 +34,8 @@
                     @endif
                     <td title="{{ $bookName->book_code }} - {{ $bookName->title }}">{{ $bookName->book_code }}</td>
                     <td title="{{ $bookName->book_code }} - {{ $bookName->title }}">{{ $bookName->title }}</td>
-                    {{--<td>{{ $item->rent_date }}</td>
-                    <td>{{ $item->return_date }}</td>
-                    <td>{{ $item->actual_return_date }}</td>
-                    <td>{{ $item->security_submitted }}</td>
-                    <td>{{ $item->security_returned }}</td>--}}
                     <td>{{ $item->copies }}</td>
-                    {{--<td>
+                    <td>
 
                         @if (Auth::User()->role_id === 3)
 
@@ -77,34 +65,51 @@
 
                     </td>
 
-                    @if(Auth::User()->role_id === 3 && ($item->status == 'Pending' || $item->status == 'Returned'))
-                        <td title="{{$item->status}}">{{ $item->status }}</td>
-
-                    @elseif(Auth::User()->role_id === 3 && $item->status == 'Arrived')
-                        <td onclick="updateStatus({{$item->id}}, 'Returned')" title="Click to update to Returned" style="cursor: pointer;">{{ $item->status }}</td>
+                    @if(Auth::User()->role_id === 3 && $item->status == 'Pending')
+                        <td title="{{$item->status}}">
+                            <button class="btn btn-success">waiting...</button>
+                            <i class="bi bi-truck" style="font-size: 1.5vw; padding-right: 6px;"></i>
+                            <i class="bi bi-circle" style="padding-right: 4px"></i>
+                            <i class="bi bi-circle" style="padding-right: 4px"></i>
+                            <i class="bi bi-circle" style="padding-right: 4px"></i>
+                            <i class="bi bi-circle" style="padding-right: 4px"></i>
+                            <i class="bi bi-circle" style="padding-right: 4px"></i>
+                            <i class="bi bi-circle"></i>
+                            <button class="btn btn-success">delivered?</button>
+                        </td>
 
                     @elseif(Auth::User()->role_id === 3 && $item->status == 'Accepted')
-                        <td title="{{$item->status}}">{{ $item->status }}</td>
+
+                        <td title="{{$item->status}}">
+                            <button class="btn btn-success">{{ $item->status }}</button>
+                            <i class="bi bi-circle" style="padding-right: 4px"></i>
+                            <i class="bi bi-circle" style="padding-right: 4px"></i>
+                            <i class="bi bi-circle" style="padding-right: 4px"></i>
+                            <i class="bi bi-truck" style="font-size: 1.5vw;"></i>
+                            <i class="bi bi-circle" style="padding-right: 4px"></i>
+                            <i class="bi bi-circle" style="padding-right: 4px"></i>
+                            <i class="bi bi-circle" style="padding-right: 4px"></i>
+                            <button class="btn btn-success">delivered?</button>
+                        </td>
 
                     @elseif(Auth::User()->role_id === 3 && $item->status == 'Delivered')
-                        <td onclick="updateStatus({{$item->id}}, 'Arrived')" title="Click to update to Arrived"  style="cursor: pointer;">{{ $item->status }}</td>
 
-                    @elseif(Auth::User()->role_id !== 3 && $item->status == 'Pending')
-                        <td onclick="updateStatus({{$item->id}}, 'Accepted')"  title="Click to update to Accepted" style="cursor: pointer;">{{ $item->status }}</td>
-
-                    @elseif(Auth::User()->role_id !== 3 && $item->status == 'Accepted')
-                        <td onclick="updateStatus({{$item->id}}, 'Prepared')"  title="Click to update to Prepared" style="cursor: pointer;">{{ $item->status }}</td>
-
-                    @elseif(Auth::User()->role_id !== 3 && ($item->status == 'Delivered' || $item->status == 'Returned'))
-                        <td title="{{$item->status}}">{{ $item->status }}</td>
-
-                    @elseif(Auth::User()->role_id !== 3 && $item->status == 'Arrived')
-                        <td title="Delivered">Delivered</td>
+                        <td title="{{$item->status}}">
+                            <button class="btn btn-success">Accepted</button>
+                            <i class="bi bi-circle" style="padding-right: 4px"></i>
+                            <i class="bi bi-circle" style="padding-right: 4px"></i>
+                            <i class="bi bi-circle" style="padding-right: 4px"></i>
+                            <i class="bi bi-circle" style="padding-right: 4px"></i>
+                            <i class="bi bi-circle" style="padding-right: 4px"></i>
+                            <i class="bi bi-circle" style="padding-right: 4px"></i>
+                            <i class="bi bi-truck" style="font-size: 1.5vw; margin-right: 4px;"></i>
+                            <button class="btn btn-success">delivered.</button>
+                        </td>
 
                     @endif
 
 
-                    @if(Auth::User()->role_id == 3 && ($item->status == 'Delivered' || $item->status == 'Returned'))
+                    {{--@if(Auth::User()->role_id == 3 && ($item->status == 'Delivered' || $item->status == 'Returned'))
                         <td onclick="returnBook({{$item->id}}, {{$item->book_id}}, 1, '{{ $item->comment }}')" style="cursor: pointer" title="Click to edit comment">
                             @if($item->comment)
                                 {{$item->comment}}
@@ -129,21 +134,9 @@
                                 -
                             @endif
                         </td>
-                    @endif--}}
+                    @endif
 
                     <td>
-                        @if((Auth::user()->role_id == 1 || Auth::user()->role_id == 2) && ($item->security_submitted != 0 || $item->security_submitted != '') && ($item->security_returned == 0 || $item->security_returned == ''))
-                            <button class="btn btn-primary" onclick="refundSecurity({{$item->id}}, {{$item->book_id}}, {{$item->security_submitted}}, 1)">Confirmed</button>
-                        @endif
-                    </td>
-
-                    <td>
-                        @if((Auth::user()->role_id == 1 || Auth::user()->role_id == 2) && ($item->security_submitted != 0 || $item->security_submitted != '') && ($item->security_returned == 0 || $item->security_returned == ''))
-                            <button class="btn btn-danger" onclick="refundSecurity({{$item->id}}, {{$item->book_id}}, {{$item->security_submitted}}, 0)">Do not apply insurance</button>
-                        @endif
-                    </td>
-
-                    {{--<td>
                         @if($item->actual_return_date == '' || $item->actual_return_date == null)
 
                             <button type="button" class="btn btn-primary" onclick="returnBook({{$item->id}}, {{$item->book_id}}, 0 ,'')">Return Book</button>
@@ -153,7 +146,6 @@
                             @if((Auth::user()->role_id == 1 || Auth::user()->role_id == 2) && ($item->security_submitted != 0 || $item->security_submitted != '') && ($item->security_returned == 0 || $item->security_returned == ''))
 
                                 <button type="button" class="btn btn-primary" onclick="refundSecurity({{$item->id}}, {{$item->book_id}}, {{$item->security_submitted}})">Refund Security</button>
-
                             @else
 
                             Returned
@@ -414,18 +406,11 @@
         });
     }
 
-    function refundSecurity(id, book_id, security_submitted, flag){
+    function refundSecurity(id, book_id, security_submitted){
 
         $("#sec_pk_id").val(id);
         $("#sec_bk_id").val(book_id);
         $("#security_submitted").val(security_submitted);
-
-        if (flag == 0){
-            $("#security_returned").val(0);
-            $("#security_returned").prop('disabled', true);
-        }else{
-            $("#security_returned").prop('disabled', false);
-        }
 
         $('.card-number').val('')
         $('.card-cvc').val('')

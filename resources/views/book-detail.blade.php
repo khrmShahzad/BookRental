@@ -53,6 +53,8 @@
                 <div class="col-lg-12">
                     <div class="portfolio-description">
                         <h2>Title - {{$book->title}}</h2>
+                        <h4>Author - {{$book->author}}</h4>
+                        <p>{{$book->description}}</p>
                         <p>Price - {{$book->charges}}</p>
                         <p>Security - {{$book->security}}</p>
                         <p>Available Copies - {{ $book->available_copies }}</p>
@@ -83,7 +85,32 @@
                             Comments...
                             <br>
                             @foreach($book['comments'] as $comment)
-                                {{$comment['comments']}}
+                                <div class="col-md-3 rounded" style="border: 1px solid gray; padding: 0.7vw;">
+                                    @if(!empty($comment['rentLogDetails']))
+
+                                        @if(!empty($comment['rentLogDetails']['user']))
+{{--                                            @dd($comment['rentLogDetails'])--}}
+                                            <img class="rounded-circle" src="{{ $comment['rentLogDetails']['user']['avatar'] != null ? asset('users/' . $comment['rentLogDetails']['user']['avatar']) : asset('images/images.png') }}" alt="Profile Picture" style="height: 50px; width: 50px;">
+
+                                            <label class="form-label">{{ $comment['rentLogDetails']['user']['username'] }}</label>
+                                        @endif
+
+                                        <div style="padding-left: 1vw;">
+                                            @for($i=1;$i<6;$i++)
+                                                @if($comment['rentLogDetails']['rating'] == 0)
+                                                    <i class="bi bi-star" title="Click to rate this books" style="cursor:pointer"></i>
+                                                @elseif($i <= $comment['rentLogDetails']['rating'])
+                                                    <i class="bi bi-star" title="Click to rate this books" style="cursor:pointer; color: greenyellow"></i>
+                                                @else
+                                                    <i class="bi bi-star" title="Click to rate this books" style="cursor:pointer"></i>
+                                                @endif
+                                            @endfor
+                                        </div>
+
+                                    @endif
+
+                                    <div style="padding-left: 1vw;">{{$comment['comments']}}</div>
+                                </div>
                             @endforeach
                         @endif
 

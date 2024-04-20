@@ -29,8 +29,14 @@ class DashboardController extends Controller
         if ($rentlogs){
             foreach ($rentlogs as $rent){
                 $book = Book::where('id', $rent['book_id'])->first();
-                $rent['book_code'] = $book['book_code'];
-                $rent['title'] = $book['title'];
+                if ($book){
+                    $rent['book_code'] = $book['book_code'];
+                    $rent['title'] = $book['title'];
+                }else{
+                    $rent['book_code'] = '';
+                    $rent['title'] = '';
+                }
+
 
                 $comment = Comment::where('rent_log_id', $rent['id'])->first();
                 if($comment){

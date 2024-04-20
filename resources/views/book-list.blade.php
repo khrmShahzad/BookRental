@@ -77,6 +77,8 @@
                         </ul><!-- End Portfolio Filters -->
                     </div>
 
+                    <div class="mb-4"><input type="text" name="books" id="searchInput" class="form-control" placeholder="Type To Search Book..."/></div>
+
                     <div class="row gy-4 portfolio-container">
 
                         @foreach ($books as $item)
@@ -86,6 +88,8 @@
                                     <a href="{{ $item->cover != null ? asset('cover/' . $item->cover) : asset('cover/cover-default1.png') }}" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{{ $item->cover != null ? asset('cover/' . $item->cover) : asset('cover/cover-default1.png') }}" class="img-fluid" alt=""></a>
                                     <div class="portfolio-info">
                                         <h4><a href="book-detail/{{ $item->id }}" title="More Details">Book Title - {{ $item->title }}</a></h4>
+                                        <p>Book Code - {{ $item->book_code }}</p>
+                                        <p>Author Name - {{ $item->author }}</p>
                                         <p>Book Price - {{ $item->charges }}</p>
                                         <p>Status - {{ $item->status }}</p>
                                         <p>Security - {{ $item->security }}</p>
@@ -1181,5 +1185,24 @@
 
         </div>
     </div>--}}
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#searchInput').on('input', function () {
+                var searchValue = $(this).val().toLowerCase();
+                $('.portfolio-item').each(function () {
+                    var bookTitle = $(this).find('h4 a').text().toLowerCase();
+                    var authorName = $(this).find('p:contains("Author Name")').text().toLowerCase();
+                    var bookCode = $(this).find('p:contains("Book Code")').text().toLowerCase();
+                    if (bookTitle.includes(searchValue) || authorName.includes(searchValue) || bookCode.includes(searchValue)) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            });
+        });
+    </script>
 
 @endsection

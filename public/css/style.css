@@ -6,13 +6,22 @@
     padding: auto !important;
 }
 
-.nav-link:hover {
+/*.nav-link:hover {
     color: #0D6EFD;
     font-weight: bold;
 }
 
 .nav-link.active {
     color: #0D6EFD !important;
+}*/
+
+.nav-link:hover {
+    color: green;
+    font-weight: bold;
+}
+
+.nav-link.active {
+    color: green !important;
 }
 
 .card-data{

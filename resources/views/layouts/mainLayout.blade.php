@@ -19,9 +19,9 @@
 <body>
 
     <div class="main d-flex flex-column justify-content-between">
-        <nav class="navbar navbar-dark navbar-expand-lg bg-primary ">
+        <nav class="navbar navbar-dark navbar-expand-lg <!--bg-primary--> " style="background-color: #008374">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Rental Books</a>
+                <a class="navbar-brand" href="#">Books Rental</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar"
                     aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -86,20 +86,26 @@
                                             class="bi bi-people-fill"></i> Users</a>
                                 </li>
                                 <li class="nav-item mb-3">
+                                    <a href="/book-requests"
+                                       class="nav-link @if (request()->route()->uri == 'book-requests') active @endif"><i
+                                            class="bi bi-journal-x"></i> Requests</a>
+                                </li>
+
+                                <li class="nav-item mb-3">
                                     <a href="/rent-logs"
                                         class="nav-link @if (request()->route()->uri == 'rent-logs') active @endif"><i
-                                            class="bi bi-journal-bookmark-fill"></i> Rent Log</a>
+                                            class="bi bi-journal-bookmark-fill"></i> Book Return</a>
                                 </li>
                                 {{--<li class="nav-item mb-3">
                                     <a href="/book-rent"
                                         class="nav-link @if (request()->route()->uri == 'book-rent') active @endif"><i
                                             class="bi bi-journal-check"></i> Book Rent</a>
                                 </li>--}}
-                                <li class="nav-item mb-3">
+                                {{--<li class="nav-item mb-3">
                                     <a href="/book-return"
                                         class="nav-link @if (request()->route()->uri == 'book-return') active @endif"><i
                                             class="bi bi-journal-x"></i> Book Return</a>
-                                </li>
+                                </li>--}}
 
                             @elseif (Auth::User()->role_id === 2)
                                 <li class="nav-item mb-3">
@@ -178,10 +184,20 @@
                                         class="nav-link @if (request()->route()->uri == '/') active @endif"><i
                                             class="bi bi-journals"></i> Book List</a>
                                 </li>
-                                <li class="nav-item mb-3">
+                                {{--<li class="nav-item mb-3">
                                     <a href="/rent-logs"
                                        class="nav-link @if (request()->route()->uri == 'rent-logs') active @endif"><i
                                             class="bi bi-journal-bookmark-fill"></i> Rent Log</a>
+                                </li>--}}
+                                <li class="nav-item mb-3">
+                                    <a href="/rented-books"
+                                       class="nav-link @if (request()->route()->uri == 'rented-books') active @endif"><i
+                                            class="bi bi-journal-bookmark-fill"></i> Rented Books</a>
+                                </li>
+                                <li class="nav-item mb-3">
+                                    <a href="/return-books"
+                                       class="nav-link @if (request()->route()->uri == 'return-books') active @endif"><i
+                                            class="bi bi-journal-bookmark-fill"></i> Return Books</a>
                                 </li>
                             @endif
                             <li class="nav-item">

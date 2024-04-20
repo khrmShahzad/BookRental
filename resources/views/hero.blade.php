@@ -3,7 +3,7 @@
     <div class="container position-relative">
         <div class="row gy-5" data-aos="fade-in">
             <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-lg-start">
-                <h2>Welcome to <span>Rental Books</span></h2>
+                <h2>Welcome to <span>Books Rental</span></h2>
                 <p>Great Platform to have a variety of knowledgeable books</p>
                 {{--<div class="d-flex justify-content-center justify-content-lg-start">
                     <a href="#" class="btn-get-started">Get Started</a>
@@ -30,7 +30,7 @@
                 <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="icon-box">
                         <div class="icon"><i class="bi bi-gem"></i></div>
-                        <h4 class="title"><a href="" class="stretched-link">Become A Lender</a></h4>
+                        <h4 class="title"><a href="" class="stretched-link">Refundable Security</a></h4>
                     </div>
                 </div><!--End Icon Box -->
 

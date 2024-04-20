@@ -5,7 +5,7 @@
         <a href="/" class="logo d-flex align-items-center">
             <!-- Uncomment the line below if you also wish to use an image logo -->
             <!-- <img src="assets/img/logo.png" alt=""> -->
-            <h1>Rental Books<span>.</span></h1>
+            <h1>Books Rental<span>.</span></h1>
         </a>
         <nav id="navbar" class="navbar">
             <ul>

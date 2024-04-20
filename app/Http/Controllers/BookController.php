@@ -6,6 +6,7 @@ use App\Models\Book;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\RentLogs;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -61,6 +62,8 @@ class BookController extends Controller
         $validated = $request->validate([
             //'book_code' => 'required|unique:books|max:255',
             'title' => 'required|max:255',
+            'author' => 'required|max:255',
+            'description' => 'required|max:255',
             'charges' => 'required',
             'total_copies' => 'required',
             'available_copies' => 'required'
@@ -192,8 +195,23 @@ class BookController extends Controller
         $book = Book::find($id);
         if ($book){
             $book['comments'] = Comment::where('book_id', $book['id'])->get();
+            if ($book['comments']){
+                foreach ($book['comments'] as $comment){
+                    $rentLogDetails = RentLogs::find($comment['rent_log_id']);
+                    $rentLogDetails['user'] = User::find($rentLogDetails['user_id']);
+
+                    $comment['rentLogDetails'] = $rentLogDetails;
+
+                }
+            }
         }
         $categories = Category::all();
         return view('book-detail', ['book' => $book, 'categories' => $categories]);
+    }
+
+    public function accept(){
+        $updated = RentLogs::where('status', 'Pending')->update(['status' => 'Accepted']);
+
+        return redirect()->back()->with('status', 'Status has been updated!');
     }
 }

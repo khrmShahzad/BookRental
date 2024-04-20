@@ -58,6 +58,9 @@
                         <form action="" method="POST" role="form" class="php-email-form" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group mt-3">
+                                <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name" required>
+                            </div>
+                            <div class="form-group mt-3">
                                 <input type="text" name="username" class="form-control" id="username" placeholder="Enter username" required>
                             </div>
 
@@ -73,13 +76,15 @@
                                 <input type="file" class="form-control" name="image" id="image">
                             </div>
 
-                            <div class="form-group mt-3">
+                            {{--<div class="form-group mt-3">
                                 <label style="margin-right: 1vw;">Sign up as a</label>
                                 <input type="radio" id="lender" name="role_id" value="2">
                                 <label for="lender" style="margin-right: 1vw;">Lender</label>
                                 <input type="radio" id="borrower" name="role_id" value="3">
                                 <label for="borrower">Borrower</label>
-                            </div>
+                            </div>--}}
+
+                            <input type="hidden" id="role_id" name="role_id" value="3">
 
                             <div class="form-group mt-3">
                                 <input type="text" name="country" class="form-control" id="country" placeholder="Country" required>

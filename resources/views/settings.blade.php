@@ -16,6 +16,10 @@
                     <input type="file" class="form-control" name="image" id="image">
                 </div>
                 <div class="mb-3">
+                    <label for="" class="form-label">Name</label>
+                    <input type="text" class="form-control" name="name" value="{{ $profile->name }}">
+                </div>
+                <div class="mb-3">
                     <label for="" class="form-label">Username</label>
                     <input type="text" class="form-control" name="username" readonly value="{{ $profile->username }}">
                 </div>

@@ -8,23 +8,11 @@
         <thead class="table-success">
             <tr>
                 <th class="col-sm-1">No.</th>
-                @if(Auth::User()->role_id === 1)
                 <th class="col-sm-1">User</th>
-                @endif
-                <th class="col-sm-1">Book</th>
-                <th class="col-sm-1">Title</th>
-               {{-- <th class="col-sm-1">Rent Date</th>
-                <th class="col-sm-1">Return Date</th>
-                <th class="col-sm-1">Actual Return Date</th>
-                <th class="col-sm-1">Security Submitted</th>
-                <th class="col-sm-1">Security Returned</th>--}}
-                <th class="col-sm-2">Copies</th>
-                {{--<th class="col-sm-2">Ratings</th>
-                <th class="col-sm-2">Status</th>
-                <th class="col-sm-2">Comments</th>--}}
-                <th class="col-sm-2">The book has been restored to its original condition</th>
-                <th class="col-sm-2">The book is damaged</th>
-                {{--<th class="col-sm-1">Action</th>--}}
+                <th class="col-sm-1">Book Code</th>
+                <th class="col-sm-1">Book Title</th>
+                <th class="col-sm-1">Requested Copies</th>
+                <th class="col-sm-1">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -36,64 +24,37 @@
                 <tr
                     class="{{ $item->actual_return_date == null ? '' : ($item->return_date < $item->actual_return_date ? 'table-danger' : 'table-success') }}">
                     <td>{{ $loop->index + 1 }}</td>
-                    @if(Auth::User()->role_id === 1)
                     <td>{{ $item->user->username }}</td>
-                    @endif
                     <td title="{{ $bookName->book_code }} - {{ $bookName->title }}">{{ $bookName->book_code }}</td>
                     <td title="{{ $bookName->book_code }} - {{ $bookName->title }}">{{ $bookName->title }}</td>
-                    {{--<td>{{ $item->rent_date }}</td>
-                    <td>{{ $item->return_date }}</td>
-                    <td>{{ $item->actual_return_date }}</td>
-                    <td>{{ $item->security_submitted }}</td>
-                    <td>{{ $item->security_returned }}</td>--}}
                     <td>{{ $item->copies }}</td>
-                    {{--<td>
-
-                        @if (Auth::User()->role_id === 3)
-
-                            @for($i=1;$i<6;$i++)
-                                @if($item->rating == 0)
-                                    <i class="bi bi-star" title="Click to rate this books" style="cursor:pointer" onclick="rateBook({{$i}}, {{$item->id}})"></i>
-                                @elseif($i <= $item->rating)
-                                    <i class="bi bi-star" title="Click to rate this books" style="cursor:pointer; color: greenyellow" onclick="rateBook({{$i}}, {{$item->id}})"></i>
-                                @else
-                                    <i class="bi bi-star" title="Click to rate this books" style="cursor:pointer" onclick="rateBook({{$i}}, {{$item->id}})"></i>
-                                @endif
-                            @endfor
-
-                        @else
-
-                            @for($i=1;$i<6;$i++)
-                                @if($item->rating == 0)
-                                    <i class="bi bi-star" title="Rating of this books" style="cursor:pointer"></i>
-                                @elseif($i <= $item->rating)
-                                    <i class="bi bi-star" title="Rating of this books" style="cursor:pointer; color: greenyellow"></i>
-                                @else
-                                    <i class="bi bi-star" title="Rating of this books" style="cursor:pointer;"></i>
-                                @endif
-                            @endfor
-
-                        @endif
-
-                    </td>
 
                     @if(Auth::User()->role_id === 3 && ($item->status == 'Pending' || $item->status == 'Returned'))
                         <td title="{{$item->status}}">{{ $item->status }}</td>
 
                     @elseif(Auth::User()->role_id === 3 && $item->status == 'Arrived')
-                        <td onclick="updateStatus({{$item->id}}, 'Returned')" title="Click to update to Returned" style="cursor: pointer;">{{ $item->status }}</td>
+                        <td onclick="updateStatus({{$item->id}}, 'Returned')" title="Click to update to Returned" style="cursor: pointer;"><button class="btn btn-success">{{ $item->status }}</button></td>
 
-                    @elseif(Auth::User()->role_id === 3 && $item->status == 'Accepted')
+                    @elseif(Auth::User()->role_id === 3 && ($item->status == 'Accepted' || $item->status == 'Prepared' || $item->status == 'Courier' || $item->status == 'Shipped'))
                         <td title="{{$item->status}}">{{ $item->status }}</td>
 
                     @elseif(Auth::User()->role_id === 3 && $item->status == 'Delivered')
-                        <td onclick="updateStatus({{$item->id}}, 'Arrived')" title="Click to update to Arrived"  style="cursor: pointer;">{{ $item->status }}</td>
+                        <td onclick="updateStatus({{$item->id}}, 'Arrived')" title="Click to update to Arrived"  style="cursor: pointer;"><button class="btn btn-success">{{ $item->status }}</button></td>
 
                     @elseif(Auth::User()->role_id !== 3 && $item->status == 'Pending')
-                        <td onclick="updateStatus({{$item->id}}, 'Accepted')"  title="Click to update to Accepted" style="cursor: pointer;">{{ $item->status }}</td>
+                        <td onclick="updateStatus({{$item->id}}, 'Accepted')"  title="Click to update to Accepted" style="cursor: pointer;"><button class="btn btn-primary">Accept{{--{{ $item->status }}--}}</button></td>
 
                     @elseif(Auth::User()->role_id !== 3 && $item->status == 'Accepted')
-                        <td onclick="updateStatus({{$item->id}}, 'Prepared')"  title="Click to update to Prepared" style="cursor: pointer;">{{ $item->status }}</td>
+                        <td onclick="updateStatus({{$item->id}}, 'Prepared')"  title="Click to update to Prepared" style="cursor: pointer;"><button class="btn btn-warning">{{ $item->status }}</button></td>
+
+                    @elseif(Auth::User()->role_id !== 3 && $item->status == 'Prepared')
+                        <td onclick="updateStatus({{$item->id}}, 'Courier')"  title="Click to update to Courier" style="cursor: pointer;"><button class="btn btn-warning">{{ $item->status }}</button></td>
+
+                    @elseif(Auth::User()->role_id !== 3 && $item->status == 'Courier')
+                        <td onclick="updateStatus({{$item->id}}, 'Shipped')"  title="Click to update to Shipped" style="cursor: pointer;"><button class="btn btn-warning">{{ $item->status }}</button></td>
+
+                    @elseif(Auth::User()->role_id !== 3 && $item->status == 'Shipped')
+                        <td onclick="updateStatus({{$item->id}}, 'Delivered')"  title="Click to update to Delivered" style="cursor: pointer;"><button class="btn btn-warning">{{ $item->status }}</button></td>
 
                     @elseif(Auth::User()->role_id !== 3 && ($item->status == 'Delivered' || $item->status == 'Returned'))
                         <td title="{{$item->status}}">{{ $item->status }}</td>
@@ -103,65 +64,6 @@
 
                     @endif
 
-
-                    @if(Auth::User()->role_id == 3 && ($item->status == 'Delivered' || $item->status == 'Returned'))
-                        <td onclick="returnBook({{$item->id}}, {{$item->book_id}}, 1, '{{ $item->comment }}')" style="cursor: pointer" title="Click to edit comment">
-                            @if($item->comment)
-                                {{$item->comment}}
-                            @else
-                                -
-                            @endif
-                        </td>
-
-                    @elseif(Auth::User()->role_id == 3)
-                        <td title="You cannot add comment until book is Delivered or Returned">
-                            @if($item->comment)
-                                {{$item->comment}}
-                            @else
-                                -
-                            @endif
-                        </td>
-                    @else
-                        <td>
-                            @if($item->comment)
-                                {{$item->comment}}
-                            @else
-                                -
-                            @endif
-                        </td>
-                    @endif--}}
-
-                    <td>
-                        @if((Auth::user()->role_id == 1 || Auth::user()->role_id == 2) && ($item->security_submitted != 0 || $item->security_submitted != '') && ($item->security_returned == 0 || $item->security_returned == ''))
-                            <button class="btn btn-primary" onclick="refundSecurity({{$item->id}}, {{$item->book_id}}, {{$item->security_submitted}}, 1)">Confirmed</button>
-                        @endif
-                    </td>
-
-                    <td>
-                        @if((Auth::user()->role_id == 1 || Auth::user()->role_id == 2) && ($item->security_submitted != 0 || $item->security_submitted != '') && ($item->security_returned == 0 || $item->security_returned == ''))
-                            <button class="btn btn-danger" onclick="refundSecurity({{$item->id}}, {{$item->book_id}}, {{$item->security_submitted}}, 0)">Do not apply insurance</button>
-                        @endif
-                    </td>
-
-                    {{--<td>
-                        @if($item->actual_return_date == '' || $item->actual_return_date == null)
-
-                            <button type="button" class="btn btn-primary" onclick="returnBook({{$item->id}}, {{$item->book_id}}, 0 ,'')">Return Book</button>
-
-                        @else
-
-                            @if((Auth::user()->role_id == 1 || Auth::user()->role_id == 2) && ($item->security_submitted != 0 || $item->security_submitted != '') && ($item->security_returned == 0 || $item->security_returned == ''))
-
-                                <button type="button" class="btn btn-primary" onclick="refundSecurity({{$item->id}}, {{$item->book_id}}, {{$item->security_submitted}})">Refund Security</button>
-
-                            @else
-
-                            Returned
-
-                            @endif
-
-                        @endif
-                    </td>--}}
                 </tr>
             @endforeach
         </tbody>
@@ -414,18 +316,11 @@
         });
     }
 
-    function refundSecurity(id, book_id, security_submitted, flag){
+    function refundSecurity(id, book_id, security_submitted){
 
         $("#sec_pk_id").val(id);
         $("#sec_bk_id").val(book_id);
         $("#security_submitted").val(security_submitted);
-
-        if (flag == 0){
-            $("#security_returned").val(0);
-            $("#security_returned").prop('disabled', true);
-        }else{
-            $("#security_returned").prop('disabled', false);
-        }
 
         $('.card-number').val('')
         $('.card-cvc').val('')
@@ -505,7 +400,7 @@
                     $("#success-msg").show();
                     setTimeout(function () {
                         location.reload();
-                        window.location.href = "/rent-logs";
+                        window.location.href = "/book-requests";
                     }, 2000);
 
                     console.log(response);

@@ -13,6 +13,11 @@
                 </a>
             </div>
             <div class="mb-3">
+                <label for="" class="form-label">Name</label>
+                <input type="text" class="form-control" value="{{ $profile->name }}" readonly>
+            </div>
+
+            <div class="mb-3">
                 <label for="" class="form-label">Username</label>
                 <input type="text" class="form-control" value="{{ $profile->username }}" readonly>
             </div>

@@ -60,7 +60,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="" class="form-label">No of Copies</label>
+                        <label for="" class="form-label">Choose No of Copies (Available Copies {{ $book->available_copies }})</label>
                         <input type="number" class="form-control" id="copies" name="copies" value="1" min="1" max="{{ $book->available_copies }}">
                     </div>
 
@@ -188,7 +188,7 @@
                 var inputValue = $(this).val();
                 var price = $("#charges").val()
                 var security = $("#security").val();
-                var sum = parseInt(security) + parseInt((price * inputValue))
+                var sum = parseInt(security * inputValue) + parseInt((price * inputValue))
                 $("#charges-area").text(sum)
             });
 

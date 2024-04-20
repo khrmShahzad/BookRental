@@ -5,7 +5,7 @@
         <div class="row gy-4">
             <div class="col-lg-5 col-md-12 footer-info">
                 <a href="#" class="logo d-flex align-items-center">
-                    <span>Rental Books</span>
+                    <span>Books Rental</span>
                 </a>
                 <p>Discover the joy of reading with our online book rental platform. Whether you're seeking captivating stories or looking to share your favorites, we offer a convenient lending service for both readers and lenders. Dive into a world of literature and join our community of book lovers today!</p>
                 {{--<div class="social-links d-flex mt-4">
@@ -55,7 +55,7 @@
             &copy; Copyright <strong><span>Impact</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
-            Designed by <a href="#">Rental Books</a>
+            Designed by <a href="#">Books Rental</a>
         </div>
     </div>
 

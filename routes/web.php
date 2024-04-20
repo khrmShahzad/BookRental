@@ -43,6 +43,7 @@ Route::middleware('auth')->group(function () {
     Route::get('book-rent', [BookRentController::class, 'index']);
     Route::post('book-rent', [BookRentController::class, 'store']);
     Route::get('rent-logs', [RentLogController::class, 'index']);
+    Route::get('book-requests', [RentLogController::class, 'bookRequests']);
     Route::get('book-return', [BookRentController::class, 'returnBook']);
     Route::get('get-user-books/{user_id}', [BookRentController::class, 'getUserBooks']);
     Route::post('book-return', [BookRentController::class, 'saveReturnBook']);
@@ -51,6 +52,8 @@ Route::middleware('auth')->group(function () {
     Route::post('return-security', [BookRentController::class, 'returnSecurity']);
 
     Route::post('update-status', [BookRentController::class, 'updateStatus']);
+    Route::get('rented-books', [RentLogController::class, 'rentedBooks']);
+    Route::get('return-books', [RentLogController::class, 'returnBooks']);
 
     Route::middleware('only_client')->group(function () {
 //        Route::get('borrow-req/{id}', [BorrowController::class, 'index']);
@@ -76,6 +79,8 @@ Route::middleware('auth')->group(function () {
         Route::get('book-deleted', [BookController::class, 'deletedBook']);
         Route::get('book-restore/{slug}', [BookController::class, 'restore']);
         Route::delete('book-permanent-delete/{slug}', [BookController::class, 'permanentDelete']);
+
+        Route::get('book-accept', [BookController::class, 'accept']);
 
         Route::get('categories', [CategoryController::class, 'index']);
         Route::get('category-add', [CategoryController::class, 'add']);
