@@ -44,10 +44,10 @@
                         <input type="text" class="form-control" name="book_code" readonly value="{{ $book->book_code }}">
                     </div>
 
-                    <div class="mb-3">
+                    {{--<div class="mb-3">
                         <label for="" class="form-label">Status</label>
                         <input type="text" class="form-control" name="status" readonly value="{{ $book->status }}">
-                    </div>
+                    </div>--}}
 
                     <div class="mb-3">
                         <label for="" class="form-label">Price</label>
