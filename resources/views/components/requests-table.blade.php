@@ -35,7 +35,7 @@
                     @elseif(Auth::User()->role_id === 3 && $item->status == 'Arrived')
                         <td onclick="updateStatus({{$item->id}}, 'Returned')" title="Click to update to Returned" style="cursor: pointer;"><button class="btn btn-success">{{ $item->status }}</button></td>
 
-                    @elseif(Auth::User()->role_id === 3 && ($item->status == 'Accepted' || $item->status == 'Prepared' || $item->status == 'Courier' || $item->status == 'Shipped'))
+                    @elseif(Auth::User()->role_id === 3 && ($item->status == 'Accepted'))
                         <td title="{{$item->status}}">{{ $item->status }}</td>
 
                     @elseif(Auth::User()->role_id === 3 && $item->status == 'Delivered')
@@ -45,16 +45,16 @@
                         <td onclick="updateStatus({{$item->id}}, 'Accepted')"  title="Click to update to Accepted" style="cursor: pointer;"><button class="btn btn-primary">Accept{{--{{ $item->status }}--}}</button></td>
 
                     @elseif(Auth::User()->role_id !== 3 && $item->status == 'Accepted')
-                        <td onclick="updateStatus({{$item->id}}, 'Prepared')"  title="Click to update to Prepared" style="cursor: pointer;"><button class="btn btn-warning">{{ $item->status }}</button></td>
+                        <td onclick="updateStatus({{$item->id}}, 'Delivered')"  title="Click to update to Delivered" style="cursor: pointer;"><button class="btn btn-warning">{{ $item->status }}</button></td>
 
-                    @elseif(Auth::User()->role_id !== 3 && $item->status == 'Prepared')
+                    {{--@elseif(Auth::User()->role_id !== 3 && $item->status == 'Prepared')
                         <td onclick="updateStatus({{$item->id}}, 'Courier')"  title="Click to update to Courier" style="cursor: pointer;"><button class="btn btn-warning">{{ $item->status }}</button></td>
 
                     @elseif(Auth::User()->role_id !== 3 && $item->status == 'Courier')
                         <td onclick="updateStatus({{$item->id}}, 'Shipped')"  title="Click to update to Shipped" style="cursor: pointer;"><button class="btn btn-warning">{{ $item->status }}</button></td>
 
                     @elseif(Auth::User()->role_id !== 3 && $item->status == 'Shipped')
-                        <td onclick="updateStatus({{$item->id}}, 'Delivered')"  title="Click to update to Delivered" style="cursor: pointer;"><button class="btn btn-warning">{{ $item->status }}</button></td>
+                        <td onclick="updateStatus({{$item->id}}, 'Delivered')"  title="Click to update to Delivered" style="cursor: pointer;"><button class="btn btn-warning">{{ $item->status }}</button></td>--}}
 
                     @elseif(Auth::User()->role_id !== 3 && ($item->status == 'Delivered' || $item->status == 'Returned'))
                         <td title="{{$item->status}}">{{ $item->status }}</td>

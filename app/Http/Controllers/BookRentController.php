@@ -263,20 +263,30 @@ class BookRentController extends Controller
         $book = Book::findOrFail($book_id);
         $book_code = $book->book_code;
 
-        Stripe\Stripe::setApiKey('sk_test_51OuCTPDVHG7hkxkWNKqQstjHSt07DTdHAq87kTdWZEj1OYOdvEr0mlHLfz1o1JyBJQOhwgct5oNr7OUinMBCb7VQ00UEJsmQeV');
+        if ($security_returned == 0){
 
-        $session = Stripe\Charge::create ([
-            "amount" => 100 * $security_returned,
-            "currency" => "usd",
-            "source" => $request->stripeToken,
-            "description" => "Book Code ".$book_code." security has been refunded ".Auth::user()->username
-        ]);
+            Session::flash('status', "Security has been set to 0...");
 
-        if ($session){
-            Session::flash('status', "Security has been refunded...");
         }else{
-            Session::flash('status', "Can't refund, something went wrong");
+
+            Stripe\Stripe::setApiKey('sk_test_51OuCTPDVHG7hkxkWNKqQstjHSt07DTdHAq87kTdWZEj1OYOdvEr0mlHLfz1o1JyBJQOhwgct5oNr7OUinMBCb7VQ00UEJsmQeV');
+
+            $session = Stripe\Charge::create ([
+                "amount" => 100 * $security_returned,
+                "currency" => "usd",
+                "source" => $request->stripeToken,
+                "description" => "Book Code ".$book_code." security has been refunded ".Auth::user()->username
+            ]);
+
+            if ($session){
+                Session::flash('status', "Security has been refunded...");
+            }else{
+                Session::flash('status', "Can't refund, something went wrong");
+            }
+
         }
+
+
 
         return back();
 

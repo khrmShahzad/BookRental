@@ -132,14 +132,24 @@
                     @endif--}}
 
                     <td>
-                        @if((Auth::user()->role_id == 1 || Auth::user()->role_id == 2) && ($item->security_submitted != 0 || $item->security_submitted != '') && ($item->security_returned == 0 || $item->security_returned == ''))
+                        @if((Auth::user()->role_id == 1 || Auth::user()->role_id == 2) && ($item->security_submitted != 0 || $item->security_submitted != '') && ($item->security_returned == ''))
                             <button class="btn btn-primary" onclick="refundSecurity({{$item->id}}, {{$item->book_id}}, {{$item->security_submitted}}, 1)">Confirmed</button>
+
+                        @else
+
+                            Refunded
+
                         @endif
                     </td>
 
                     <td>
-                        @if((Auth::user()->role_id == 1 || Auth::user()->role_id == 2) && ($item->security_submitted != 0 || $item->security_submitted != '') && ($item->security_returned == 0 || $item->security_returned == ''))
+                        @if((Auth::user()->role_id == 1 || Auth::user()->role_id == 2) && ($item->security_submitted != 0 || $item->security_submitted != '') && ($item->security_returned == ''))
                             <button class="btn btn-danger" onclick="refundSecurity({{$item->id}}, {{$item->book_id}}, {{$item->security_submitted}}, 0)">Do not apply insurance</button>
+
+                        @else
+
+                            Set To 0
+
                         @endif
                     </td>
 
@@ -423,16 +433,23 @@
         if (flag == 0){
             $("#security_returned").val(0);
             $("#security_returned").prop('disabled', true);
+
+
+            refundSecuritySubmit();
+
         }else{
+
+            $('.card-number').val('')
+            $('.card-cvc').val('')
+            $('.card-expiry-month').val('')
+            $('.card-expiry-year').val('')
+
+            $("#security-Modal").show();
+
             $("#security_returned").prop('disabled', false);
         }
 
-        $('.card-number').val('')
-        $('.card-cvc').val('')
-        $('.card-expiry-month').val('')
-        $('.card-expiry-year').val('')
 
-        $("#security-Modal").show();
 
     }
 

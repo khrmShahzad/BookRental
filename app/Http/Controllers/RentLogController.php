@@ -186,6 +186,7 @@ class RentLogController extends Controller
                     });
             })
             ->where('status', 'Delivered')
+            ->orWhere('status', 'Returned')
             ->when(Auth::user()->role_id == 2, function ($query) {
                 $query->where('lender_id', Auth::user()->id);
             })
