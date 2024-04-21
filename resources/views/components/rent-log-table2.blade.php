@@ -314,7 +314,7 @@
                     $("#success-msg").show();
                     setTimeout(function () {
                         location.reload();
-                        window.location.href = "/rent-logs";
+                        window.location.href = "/return-books";
                     }, 2000);
 
                     console.log(response);
