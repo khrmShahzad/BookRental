@@ -175,6 +175,7 @@ class BookRentController extends Controller
         if($flag == 0){
             $rentData = RentLogs::find($id);
             $rentData->actual_return_date = Carbon::now()->toDateString();
+            $rentData->status = 'Returned';
             $copies = $rentData->copies;
             $rentData->save();
 
@@ -288,14 +289,14 @@ class BookRentController extends Controller
 
 
 
-        return back();
+        //return back();
 
-        /*$responseData = [
+        $responseData = [
             'message' => 'Security has been refunded',
             'status' => 'success'
         ];
 
-        return response()->json($responseData);*/
+        return response()->json($responseData);
 
     }
 

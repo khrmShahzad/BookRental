@@ -17,6 +17,7 @@
                 <th class="col-sm-2">Ratings</th>
                 <th class="col-sm-4">Status</th>
                 <th class="col-sm-2">Comments</th>
+                <th class="col-sm-2">Security</th>
                 <th class="col-sm-1">Action</th>
             </tr>
         </thead>
@@ -107,6 +108,9 @@
                         </td>
                     @endif
 
+                    <td>
+                        {{$item->security_returned}}
+                    </td>
                     <td>
                         @if($item->actual_return_date == '' || $item->actual_return_date == null)
 

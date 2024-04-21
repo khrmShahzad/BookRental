@@ -131,27 +131,40 @@
                         </td>
                     @endif--}}
 
+                    @if($item->status == 'Returned')
                     <td>
-                        @if((Auth::user()->role_id == 1 || Auth::user()->role_id == 2) && ($item->security_submitted != 0 || $item->security_submitted != '') && ($item->security_returned == 0))
+                        @if((Auth::user()->role_id == 1 || Auth::user()->role_id == 2) && ($item->security_submitted != 0 || $item->security_submitted != '') && ($item->security_returned == ''))
                             <button class="btn btn-primary" onclick="refundSecurity({{$item->id}}, {{$item->book_id}}, {{$item->security_submitted}}, 1)">Confirmed</button>
 
-                        {{--@else
+                        @else
 
-                            Refunded--}}
+                            Refunded
 
                         @endif
                     </td>
 
                     <td>
-                        @if((Auth::user()->role_id == 1 || Auth::user()->role_id == 2) && ($item->security_submitted != 0 || $item->security_submitted != '') && ($item->security_returned == 0))
+                        @if((Auth::user()->role_id == 1 || Auth::user()->role_id == 2) && ($item->security_submitted != 0 || $item->security_submitted != '') && ($item->security_returned == ''))
                             <button class="btn btn-danger" onclick="refundSecurity({{$item->id}}, {{$item->book_id}}, {{$item->security_submitted}}, 0)">Do not apply insurance</button>
 
-                        {{--@else
+                        @else
 
-                            Set To 0--}}
+                            Not Refundable (Damaged)
 
                         @endif
                     </td>
+
+                    @else
+
+                        <td>
+                            Book is not returned yet
+                        </td>
+
+                        <td>
+                            Book is not returned yet
+                        </td>
+
+                    @endif
 
                     {{--<td>
                         @if($item->actual_return_date == '' || $item->actual_return_date == null)
