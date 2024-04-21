@@ -135,9 +135,9 @@
                         @if((Auth::user()->role_id == 1 || Auth::user()->role_id == 2) && ($item->security_submitted != 0 || $item->security_submitted != '') && ($item->security_returned == ''))
                             <button class="btn btn-primary" onclick="refundSecurity({{$item->id}}, {{$item->book_id}}, {{$item->security_submitted}}, 1)">Confirmed</button>
 
-                        @else
+                        {{--@else
 
-                            Refunded
+                            Refunded--}}
 
                         @endif
                     </td>
@@ -146,9 +146,9 @@
                         @if((Auth::user()->role_id == 1 || Auth::user()->role_id == 2) && ($item->security_submitted != 0 || $item->security_submitted != '') && ($item->security_returned == ''))
                             <button class="btn btn-danger" onclick="refundSecurity({{$item->id}}, {{$item->book_id}}, {{$item->security_submitted}}, 0)">Do not apply insurance</button>
 
-                        @else
+                        {{--@else
 
-                            Set To 0
+                            Set To 0--}}
 
                         @endif
                     </td>
