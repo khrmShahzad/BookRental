@@ -35,7 +35,7 @@ class BorrowController extends Controller
 
         $request->merge(['book_id' => $book->id]);
         // if book = not available
-        if ($book['available_copies'] != 0) {
+        if ($book['available_copies'] == 0) {
             Session::flash('status', "Can't rent, the book is not available");
             return back();
         } else {
