@@ -132,7 +132,7 @@
                     @endif--}}
 
                     <td>
-                        @if((Auth::user()->role_id == 1 || Auth::user()->role_id == 2) && ($item->security_submitted != 0 || $item->security_submitted != '') && ($item->security_returned == ''))
+                        @if((Auth::user()->role_id == 1 || Auth::user()->role_id == 2) && ($item->security_submitted != 0 || $item->security_submitted != '') && ($item->security_returned == 0))
                             <button class="btn btn-primary" onclick="refundSecurity({{$item->id}}, {{$item->book_id}}, {{$item->security_submitted}}, 1)">Confirmed</button>
 
                         {{--@else
@@ -143,7 +143,7 @@
                     </td>
 
                     <td>
-                        @if((Auth::user()->role_id == 1 || Auth::user()->role_id == 2) && ($item->security_submitted != 0 || $item->security_submitted != '') && ($item->security_returned == ''))
+                        @if((Auth::user()->role_id == 1 || Auth::user()->role_id == 2) && ($item->security_submitted != 0 || $item->security_submitted != '') && ($item->security_returned == 0))
                             <button class="btn btn-danger" onclick="refundSecurity({{$item->id}}, {{$item->book_id}}, {{$item->security_submitted}}, 0)">Do not apply insurance</button>
 
                         {{--@else
