@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <h1>Rent Log</h1>
+    <h1>Book Return</h1>
 
     @if (session('status'))
         <div class="alert alert-success mt-5">
@@ -23,12 +23,12 @@
             </form>
         </div>
 
-        @if(Auth::user()->id != 3)
+        {{--@if(Auth::user()->id != 3)
             <div class="col-12 col-md-auto">
                 <a href="book-add" class="btn btn-primary me-4">Add Data</a>
                 <a href="book-deleted" class="btn btn-info">Show Deleted Data</a>
             </div>
-        @endif
+        @endif--}}
     </div>
 
     <div class="my-5">

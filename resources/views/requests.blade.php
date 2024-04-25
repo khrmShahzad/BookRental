@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <h1>Rent Log</h1>
+    <h1>Requests</h1>
 
     @if (session('status'))
         <div class="alert alert-success mt-5">
@@ -26,8 +26,8 @@
         @if(Auth::user()->id != 3)
             <div class="col-12 col-md-auto">
                 <a href="book-accept" class="btn btn-primary me-4">Accept All</a>
-                <a href="book-add" class="btn btn-primary me-4">Add Data</a>
-                <a href="book-deleted" class="btn btn-info">Show Deleted Data</a>
+                {{--<a href="book-add" class="btn btn-primary me-4">Add Data</a>
+                <a href="book-deleted" class="btn btn-info">Show Deleted Data</a>--}}
             </div>
         @endif
     </div>
