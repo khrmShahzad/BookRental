@@ -289,14 +289,14 @@ class BookRentController extends Controller
 
 
 
-        //return back();
+        return back();
 
-        $responseData = [
+        /*$responseData = [
             'message' => 'Security has been refunded',
             'status' => 'success'
         ];
 
-        return response()->json($responseData);
+        return response()->json($responseData);*/
 
     }
 
