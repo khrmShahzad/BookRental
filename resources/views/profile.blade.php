@@ -52,14 +52,6 @@
             </div>
         </div>
 
-        {{--<div class="my-5 w-75 col-lg-9 col-md-6">
-            <h3 class="mb-3">Rent Logs</h3>
-            <x-rent-log-table :rentlog='$rent_logs' />
-        </div>--}}
     </div>
 
-    {{--<div class="my-5">
-        <h2 class="mb-3">Your Rent Logs</h2>
-        <x-rent-log-table :rentlog='$rent_logs' />
-    </div>--}}
 @endsection

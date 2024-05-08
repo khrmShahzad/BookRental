@@ -96,16 +96,6 @@
                                         class="nav-link @if (request()->route()->uri == 'rent-logs') active @endif"><i
                                             class="bi bi-journal-bookmark-fill"></i> Book Return</a>
                                 </li>
-                                {{--<li class="nav-item mb-3">
-                                    <a href="/book-rent"
-                                        class="nav-link @if (request()->route()->uri == 'book-rent') active @endif"><i
-                                            class="bi bi-journal-check"></i> Book Rent</a>
-                                </li>--}}
-                                {{--<li class="nav-item mb-3">
-                                    <a href="/book-return"
-                                        class="nav-link @if (request()->route()->uri == 'book-return') active @endif"><i
-                                            class="bi bi-journal-x"></i> Book Return</a>
-                                </li>--}}
 
                             @elseif (Auth::User()->role_id === 2)
                                 <li class="nav-item mb-3">
@@ -128,36 +118,13 @@
                                        class="nav-link @if (in_array(request()->route()->uri, ['books', 'book-add', 'book-deleted', 'book-edit/{slug}', 'book-delete/{slug}'])) active @endif"><i
                                             class="bi bi-book-fill"></i> Books</a>
                                 </li>
-                                {{--<li class="nav-item mb-3">
-                                    <a href="/categories"
-                                       class="nav-link @if (request()->route()->uri == 'categories' ||
-                                                request()->route()->uri == 'category-add' ||
-                                                request()->route()->uri == 'category-deleted' ||
-                                                request()->route()->uri == 'category-edit/{slug}' ||
-                                                request()->route()->uri == 'category-delete/{slug}') active @endif"><i
-                                            class="bi bi-tags-fill"></i> Categories</a>
-                                </li>
-                                <li class="nav-item mb-3">
-                                    <a href="/users"
-                                       class="nav-link @if (in_array(request()->route()->uri, [
-                                                'users',
-                                                'registered-users',
-                                                'user-approve/{slug}',
-                                                'user-ban/{slug}',
-                                                'user-deleted',
-                                            ])) active @endif"><i
-                                            class="bi bi-people-fill"></i> Users</a>
-                                </li>--}}
+
                                 <li class="nav-item mb-3">
                                     <a href="/rent-logs"
                                        class="nav-link @if (request()->route()->uri == 'rent-logs') active @endif"><i
                                             class="bi bi-journal-bookmark-fill"></i> Rent Log</a>
                                 </li>
-                                {{--<li class="nav-item mb-3">
-                                    <a href="/book-rent"
-                                       class="nav-link @if (request()->route()->uri == 'book-rent') active @endif"><i
-                                            class="bi bi-journal-check"></i> Book Rent</a>
-                                </li>--}}
+
                                 <li class="nav-item mb-3">
                                     <a href="/book-return"
                                        class="nav-link @if (request()->route()->uri == 'book-return') active @endif"><i
@@ -184,11 +151,7 @@
                                         class="nav-link @if (request()->route()->uri == '/') active @endif"><i
                                             class="bi bi-journals"></i> Book List</a>
                                 </li>
-                                {{--<li class="nav-item mb-3">
-                                    <a href="/rent-logs"
-                                       class="nav-link @if (request()->route()->uri == 'rent-logs') active @endif"><i
-                                            class="bi bi-journal-bookmark-fill"></i> Rent Log</a>
-                                </li>--}}
+
                                 <li class="nav-item mb-3">
                                     <a href="/rented-books"
                                        class="nav-link @if (request()->route()->uri == 'rented-books') active @endif"><i

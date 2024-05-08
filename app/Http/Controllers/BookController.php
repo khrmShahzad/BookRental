@@ -17,23 +17,6 @@ class BookController extends Controller
     public function index(Request $request)
     {
         $keyword = $request->keyword;
-
-        /*$where = '';
-        if (Auth::user()->role_id == 2){
-            $where = 'user_id = '.Auth::user()->id;
-        }
-
-        $books = Book::with('categories')
-            ->when($where, function ($query, $where) {
-                return $query->whereRaw($where);
-            })
-            ->where('book_code', 'LIKE', '%' . $keyword . '%')
-            ->orWhere('title', 'LIKE', '%' . $keyword . '%')
-            ->orWhere('status', 'LIKE', '%' . $keyword . '%')
-            ->orWhereHas('categories', function ($query) use ($keyword) {
-                $query->where('name', 'LIKE', '%' . $keyword . '%');
-            })
-            ->paginate(10);*/
         $books = Book::with('categories')
             ->where(function ($query) use ($keyword) {
                 $query->where('book_code', 'LIKE', '%' . $keyword . '%')
@@ -173,7 +156,6 @@ class BookController extends Controller
 
         }else{
 
-            // Menghapus data terkait di tabel anak
             $deletedBook->bookCategories()->delete();
 
             Storage::disk('public')->delete('cover/' . $deletedBook->cover);

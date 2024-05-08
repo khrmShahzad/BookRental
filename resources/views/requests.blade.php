@@ -26,8 +26,6 @@
         @if(Auth::user()->id != 3)
             <div class="col-12 col-md-auto">
                 <a href="book-accept" class="btn btn-primary me-4">Accept All</a>
-                {{--<a href="book-add" class="btn btn-primary me-4">Add Data</a>
-                <a href="book-deleted" class="btn btn-info">Show Deleted Data</a>--}}
             </div>
         @endif
     </div>

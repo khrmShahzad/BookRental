@@ -47,15 +47,6 @@
                     @elseif(Auth::User()->role_id !== 3 && $item->status == 'Accepted')
                         <td onclick="updateStatus({{$item->id}}, 'Delivered')"  title="Click to update to Delivered" style="cursor: pointer;"><button class="btn btn-warning">{{ $item->status }}</button></td>
 
-                    {{--@elseif(Auth::User()->role_id !== 3 && $item->status == 'Prepared')
-                        <td onclick="updateStatus({{$item->id}}, 'Courier')"  title="Click to update to Courier" style="cursor: pointer;"><button class="btn btn-warning">{{ $item->status }}</button></td>
-
-                    @elseif(Auth::User()->role_id !== 3 && $item->status == 'Courier')
-                        <td onclick="updateStatus({{$item->id}}, 'Shipped')"  title="Click to update to Shipped" style="cursor: pointer;"><button class="btn btn-warning">{{ $item->status }}</button></td>
-
-                    @elseif(Auth::User()->role_id !== 3 && $item->status == 'Shipped')
-                        <td onclick="updateStatus({{$item->id}}, 'Delivered')"  title="Click to update to Delivered" style="cursor: pointer;"><button class="btn btn-warning">{{ $item->status }}</button></td>--}}
-
                     @elseif(Auth::User()->role_id !== 3 && ($item->status == 'Delivered' || $item->status == 'Returned'))
                         <td title="{{$item->status}}">{{ $item->status }}</td>
 
@@ -304,7 +295,6 @@
                 if (response.status == "success") {
                     setTimeout(function () {
                         location.reload();
-                        //window.location.href = "{ { route("admin-player-list")}}";
                     }, 1000);
 
                     console.log(response);
@@ -358,7 +348,6 @@
                 if (response.status == "success") {
                     setTimeout(function () {
                         location.reload();
-                        //window.location.href = "{ { route("admin-player-list")}}";
                     }, 1000);
 
                     console.log(response);

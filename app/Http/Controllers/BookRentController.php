@@ -138,13 +138,6 @@ class BookRentController extends Controller
             $isExists->rating = $star;
             $isExists->save();
         }
-        /*else {
-            $data = Rating::create([
-                'user_id' => Auth::user()->id,
-                'book_id' => $id,
-                'rating' => $star
-            ]);
-        }*/
 
         $book = Book::find($isExists->book_id);
         $averageRating = RentLogs::where('id', $id)->avg('rating');

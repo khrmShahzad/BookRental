@@ -57,10 +57,8 @@
 
 <script>
     function confirmDelete() {
-        // Tampilkan dialog konfirmasi
         var result = confirm("Are you sure you want to permanently delete this user?");
 
-        // Kembalikan nilai true atau false berdasarkan pilihan pengguna
         return result;
     }
 </script>

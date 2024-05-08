@@ -48,17 +48,9 @@
                     <label for="" class="form-label">Address</label>
                     <textarea class="form-control" id="" rows="5" name="address" style="resize: none">{{ $profile->address }}</textarea>
                 </div>
-                {{--<div class="mb-3">
-                    <label for="" class="form-label">Status</label>
-                    <input type="text" class="form-control" value="{{ $profile->status }}">
-                </div>--}}
                 <div class="text-center"><button type="submit">Update</button></div>
             </form>
         </div>
     </div>
 
-    {{--<div class="my-5">
-        <h2 class="mb-3">Your Rent Logs</h2>
-        <x-rent-log-table :rentlog='$rent_logs' />
-    </div>--}}
 @endsection

@@ -44,11 +44,6 @@
                         <input type="text" class="form-control" name="book_code" readonly value="{{ $book->book_code }}">
                     </div>
 
-                    {{--<div class="mb-3">
-                        <label for="" class="form-label">Status</label>
-                        <input type="text" class="form-control" name="status" readonly value="{{ $book->status }}">
-                    </div>--}}
-
                     <div class="mb-3">
                         <label for="" class="form-label">Price</label>
                         <input type="text" class="form-control" id="charges" name="charges" readonly value="{{ $book->charges }}">
@@ -64,15 +59,6 @@
                         <input type="number" class="form-control" id="copies" name="copies" value="1" min="1" max="{{ $book->available_copies }}">
                     </div>
 
-                    {{--<div class="mb-3">
-                        <label for="" class="form-label">Rent Date</label>
-                        <input type="date" class="form-control" name="rent_date" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="" class="form-label">Return Date</label>
-                        <input type="date" class="form-control" name="return_date" required>
-                    </div>--}}
 
                 </div>
 
@@ -109,12 +95,6 @@
                 </div>
 
             </div>
-
-            {{--<div class='form-row row'>
-                <div class='col-md-12 error form-group hide'>
-                    <div class='alert-danger alert'>Please correct the errors and tryagain.</div>
-                </div>
-            </div>--}}
 
             <div class="row">
                 <div class="col-xs-12">

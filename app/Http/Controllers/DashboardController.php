@@ -37,7 +37,6 @@ class DashboardController extends Controller
                     $rent['title'] = '';
                 }
 
-
                 $comment = Comment::where('rent_log_id', $rent['id'])->first();
                 if($comment){
                     $rent['comment'] = $comment['comments'];

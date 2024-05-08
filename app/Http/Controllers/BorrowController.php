@@ -30,8 +30,7 @@ class BorrowController extends Controller
         $request['return_date'] = Carbon::now()->addDay(7)->toDateString();
         $request['user_id'] = Auth::user()->id;
 
-//        $book = Book::findOrFail($request->book_id)->only('status');
-        $book = Book::where('book_code',$request->book_code)->first();//only('status');
+        $book = Book::where('book_code',$request->book_code)->first();
 
         $request->merge(['book_id' => $book->id]);
         // if book = not available
@@ -48,8 +47,6 @@ class BorrowController extends Controller
                 return back();
 
             } else {
-
-
 
                 // process update book table
                 $book = Book::findOrFail($request->book_id);

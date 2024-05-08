@@ -14,40 +14,6 @@ class RentLogController extends Controller
     {
         $keyword = $request->keyword;
 
-        /*$where = '';
-        if (Auth::user()->role_id == 2 || Auth::user()->role_id == 3){
-            $where = 'user_id = '.Auth::user()->id;
-        }
-
-        $rentlogs = RentLogs::with('user', 'book')
-            ->when($where, function ($query, $where) {
-                return $query->whereRaw($where);
-            })
-            ->whereHas('book', function ($query) use ($keyword) {
-                $query->where('title', 'LIKE', '%' . $keyword . '%');
-            })
-            ->orWhereHas('user', function ($query) use ($keyword) {
-                $query->where('username', 'LIKE', '%' . $keyword . '%');
-            })
-            ->paginate(10);*/
-
-        /*$rentlogs = RentLogs::with('user', 'book')
-            ->where(function ($query) use ($keyword) {
-                $query->whereHas('book', function ($query) use ($keyword) {
-                    $query->where('title', 'LIKE', '%' . $keyword . '%');
-                })
-                    ->orWhereHas('user', function ($query) use ($keyword) {
-                        $query->where('username', 'LIKE', '%' . $keyword . '%');
-                    });
-            })
-            ->when(Auth::user()->role_id, 2, function ($query) {
-                $query->where('lender_id', Auth::user()->id);
-            })
-            ->when(Auth::user()->role_id, 3, function ($query) {
-                $query->where('user_id', Auth::user()->id);
-            })
-            ->paginate(10);*/
-
         $rentlogs = RentLogs::with('user', 'book')
             ->where(function ($query) use ($keyword) {
                 $query->whereHas('book', function ($query) use ($keyword) {
@@ -77,7 +43,6 @@ class RentLogController extends Controller
                 }else{
                     $rent['comment'] = '';
                 }
-
 
             }
         }
@@ -164,8 +129,6 @@ class RentLogController extends Controller
                 }else{
                     $rent['comment'] = '';
                 }
-
-
             }
         }
 

@@ -370,7 +370,6 @@
                 if (response.status == "success") {
                     setTimeout(function () {
                         location.reload();
-                        //window.location.href = "{ { route("admin-player-list")}}";
                     }, 1000);
 
                     console.log(response);
@@ -424,7 +423,6 @@
                 if (response.status == "success") {
                     setTimeout(function () {
                         location.reload();
-                        //window.location.href = "{ { route("admin-player-list")}}";
                     }, 1000);
 
                     console.log(response);

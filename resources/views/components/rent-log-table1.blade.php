@@ -16,8 +16,6 @@
                 <th class="col-sm-1">Copies</th>
                 <th class="col-sm-2">Ratings</th>
                 <th class="col-sm-4">Status</th>
-                {{--<th class="col-sm-2">Comments</th>
-                <th class="col-sm-1">Action</th>--}}
             </tr>
         </thead>
         <tbody>
@@ -107,53 +105,6 @@
                         </td>
 
                     @endif
-
-
-                    {{--@if(Auth::User()->role_id == 3 && ($item->status == 'Delivered' || $item->status == 'Returned'))
-                        <td onclick="returnBook({{$item->id}}, {{$item->book_id}}, 1, '{{ $item->comment }}')" style="cursor: pointer" title="Click to edit comment">
-                            @if($item->comment)
-                                {{$item->comment}}
-                            @else
-                                -
-                            @endif
-                        </td>
-
-                    @elseif(Auth::User()->role_id == 3)
-                        <td title="You cannot add comment until book is Delivered or Returned">
-                            @if($item->comment)
-                                {{$item->comment}}
-                            @else
-                                -
-                            @endif
-                        </td>
-                    @else
-                        <td>
-                            @if($item->comment)
-                                {{$item->comment}}
-                            @else
-                                -
-                            @endif
-                        </td>
-                    @endif
-
-                    <td>
-                        @if($item->actual_return_date == '' || $item->actual_return_date == null)
-
-                            <button type="button" class="btn btn-primary" onclick="returnBook({{$item->id}}, {{$item->book_id}}, 0 ,'')">Return Book</button>
-
-                        @else
-
-                            @if((Auth::user()->role_id == 1 || Auth::user()->role_id == 2) && ($item->security_submitted != 0 || $item->security_submitted != '') && ($item->security_returned == 0 || $item->security_returned == ''))
-
-                                <button type="button" class="btn btn-primary" onclick="refundSecurity({{$item->id}}, {{$item->book_id}}, {{$item->security_submitted}})">Refund Security</button>
-                            @else
-
-                            Returned
-
-                            @endif
-
-                        @endif
-                    </td>--}}
                 </tr>
             @endforeach
         </tbody>
@@ -394,7 +345,6 @@
                 if (response.status == "success") {
                     setTimeout(function () {
                         location.reload();
-                        //window.location.href = "{ { route("admin-player-list")}}";
                     }, 1000);
 
                     console.log(response);
@@ -448,7 +398,6 @@
                 if (response.status == "success") {
                     setTimeout(function () {
                         location.reload();
-                        //window.location.href = "{ { route("admin-player-list")}}";
                     }, 1000);
 
                     console.log(response);
